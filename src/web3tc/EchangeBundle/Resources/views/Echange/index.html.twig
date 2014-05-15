@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <div class="well">
+        <form method="post" action="{{ path('_acceuil') }}">
+            <select name="departement"> 
+                {% for departement in departements %}
+                    <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
+                {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-primary" />
+        </form>
+    </div>
+
+{% endblock %}

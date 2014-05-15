@@ -1,0 +1,5 @@
+web3tc_echange:
+    resource: "@web3tcEchangeBundle/Controller/"
+    type:     annotation
+    prefix:   /Echange/
+
