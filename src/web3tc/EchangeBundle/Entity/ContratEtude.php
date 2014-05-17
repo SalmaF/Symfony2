@@ -28,12 +28,14 @@ class ContratEtude
     private $departement;
     
     /**
+     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Universite")
      * @ORM\ManyToOne(targetEntity="Universite")
      * @ORM\JoinColumn(nullable=false)
      */
     private $universite;
     
     /**
+     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Cours")
      * @ORM\ManyToMany(targetEntity="Cours")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -208,7 +210,7 @@ class ContratEtude
      * @param \web3tc\EchangeBundle\Entity\Universite $universite
      * @return ContratEtude
      */
-    public function setUniversite(\web3tc\EchangeBundle\Entity\Universite $universite)
+    public function setUniversite(Universite $universite = null)
     {
         $this->universite = $universite;
 
@@ -225,13 +227,20 @@ class ContratEtude
         return $this->universite;
     }
 
+     public function setCours(Cours $cours = null)
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+    
     /**
      * Add cours
      *
      * @param \web3tc\EchangeBundle\Entity\Cours $cours
      * @return ContratEtude
      */
-    public function addCour(\web3tc\EchangeBundle\Entity\Cours $cours)
+    public function addCours(\web3tc\EchangeBundle\Entity\Cours $cours)
     {
         $this->cours[] = $cours;
 
@@ -243,7 +252,7 @@ class ContratEtude
      *
      * @param \web3tc\EchangeBundle\Entity\Cours $cours
      */
-    public function removeCour(\web3tc\EchangeBundle\Entity\Cours $cours)
+    public function removeCours(\web3tc\EchangeBundle\Entity\Cours $cours)
     {
         $this->cours->removeElement($cours);
     }

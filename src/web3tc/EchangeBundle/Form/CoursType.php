@@ -15,10 +15,10 @@ class CoursType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numero','text')
-            ->add('titre','text')
-            ->add('semestre','choice')
-            ->add('credits','number')
+            ->add('numero','text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('titre','text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('semestre','choice', array('attr' => array( 'class' => 'form-control' )))
+            ->add('credits','number', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
         ;
     }
     
@@ -28,7 +28,7 @@ class CoursType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'web3tc\EchangeBundle\Entity\Cours'
+            'data_class' => NULL
         ));
     }
 

@@ -15,15 +15,16 @@ class ContratEtudeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomEleve',       'text')
-            ->add('prenomEleve',        'text')
-            ->add('anneeEnCours',       'choice')
-            ->add('dureeDuSejour',      'choice')
-            ->add('departement',        'text')
-            ->add('universite',     'text')
-            ->add('cours',  'collection', array('type' => new CoursType(),
-                                                'allow_add'    => true,
-                                                'allow_delete' => true))
+            ->add('nomEleve', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('prenomEleve', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('anneeEnCours','choice', array('attr' => array( 'class' => 'form-control' )))
+            ->add('dureeDuSejour', 'choice', array('attr' => array( 'class' => 'form-control' )))
+            ->add('departement', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('universite',new UniversiteType())
+            ->add('cours', new CoursType())
+            //->add('cours',  new CoursType(),array(
+              //                                  'allow_add'    => true,
+                //                                'allow_delete' => true))
         ;
     }
     
@@ -33,7 +34,8 @@ class ContratEtudeType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'web3tc\EchangeBundle\Entity\ContratEtude'
+            'data_class' => 'web3tc\EchangeBundle\Entity\ContratEtude',
+            'cascade_validation' => true,
         ));
     }
 

@@ -80,7 +80,5 @@ class EchangeController extends Controller
         return $this->render('web3tcEchangeBundle:Echange:formulaire.html.twig', array(
             'form' => $form->createView(),
           ));
-        
-      
     }
 }
