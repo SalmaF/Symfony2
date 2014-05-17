@@ -3,4 +3,8 @@
 /app/cache/*
 /app/logs/*
 /vendor/
+<<<<<<< HEAD
 /app/config/parameters.yml
+=======
+/app/config/parameters.yml  
+>>>>>>> 53d4d653e9d2104e2bb3989ffde9eb9c71a9bce9

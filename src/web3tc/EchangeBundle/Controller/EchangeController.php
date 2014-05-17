@@ -5,6 +5,7 @@ namespace web3tc\EchangeBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\ContratEtude;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
@@ -17,11 +18,12 @@ class EchangeController extends Controller
      */
     public function indexAction()
     {    
-        $departement = new Departement();
+
 
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {                
-            $departement = $this->getDoctrine()
+                $departement = new Departement();
+                $departement = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('web3tcEchangeBundle:Departement')
                     ->findOneByNom($request->request->get('departement')); //$request->query->get('departement')
@@ -44,9 +46,13 @@ class EchangeController extends Controller
     /**
     * @Route("/carte/{departement_nom}", name="_carte")
     * @Template()
-    */
-    public function carteAction()
+    * @ParamConverter("departement", options={"mapping": {"departement_nom": "nom"}})
+     */
+    public function carteAction(Departement $departement)
     {
+      return $this->render('web3tcEchangeBundle:Echange:carte.html.twig', array(
+              'departement'=>$departement,
+              ));
         
     }
     /**

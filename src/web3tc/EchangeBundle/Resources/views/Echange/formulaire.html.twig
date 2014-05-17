@@ -2,57 +2,61 @@
 
 {% extends "::base.html.twig" %}
 
-<h3>Formulaire de Contrat d'étude</h3>
+{% block body %}
 
-<div class="well">
-  <form method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <input type="submit" class="btn btn-primary" />
-  </form>
-</div>
+    <h3>Formulaire de Contrat d'étude</h3>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
+    <div class="well">
+      <form method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <input type="submit" class="btn btn-primary" />
+      </form>
+    </div>
 
-        var $lienAjout = $('<a href="#" id="ajout_cours" class="btn">Ajouter un cours</a>');
-        $container.append($lienAjout);
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
 
-        $lienAjout.click(function(e) {
-            ajouterCours($container);
-            e.preventDefault();
-            return false;
-        });
+            var $lienAjout = $('<a href="#" id="ajout_cours" class="btn">Ajouter un cours</a>');
+            $container.append($lienAjout);
 
-        var index = $container.find(':input').length;
-
-        if (index == 0) {
-            ajouterCours($container);
-        } else {
-            $container.children('div').each(function() {
-                ajouterLienSuppression($(this));
-            });
-        }
-
-        function ajouterCours($container) {
-            var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Cours n°' + (index+1))
-                                                                .replace(/__name__/g, index));
-
-            ajouterLienSuppression($prototype);
-            $container.append($prototype);
-            index++;
-        }
-
-        function ajouterLienSuppression($prototype) {
-            $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
-
-            $prototype.append($lienSuppression);
-
-            $lienSuppression.click(function(e) {
-                $prototype.remove();
+            $lienAjout.click(function(e) {
+                ajouterCours($container);
                 e.preventDefault();
                 return false;
             });
-        }
-    });
-</script>
+
+            var index = $container.find(':input').length;
+
+            if (index == 0) {
+                ajouterCours($container);
+            } else {
+                $container.children('div').each(function() {
+                    ajouterLienSuppression($(this));
+                });
+            }
+
+            function ajouterCours($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Cours n°' + (index+1))
+                                                                    .replace(/__name__/g, index));
+
+                ajouterLienSuppression($prototype);
+                $container.append($prototype);
+                index++;
+            }
+
+            function ajouterLienSuppression($prototype) {
+                $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+                $prototype.append($lienSuppression);
+
+                $lienSuppression.click(function(e) {
+                    $prototype.remove();
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        });
+    </script>
+
+{% endblock %}
