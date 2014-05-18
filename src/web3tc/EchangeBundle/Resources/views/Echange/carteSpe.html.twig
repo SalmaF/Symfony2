@@ -7,8 +7,7 @@
 {% endblock %}
 {% block body %}
 
-    <h1> Selectionnez le pays dans lequel vous souhaitez partir</h1>
-  <div id="vmap" style="width: 600px; height: 400px;"></div>
+ <div id="vmap" style="width: 600px; height: 400px;"></div>
   {% endblock %}
 
 {% block javascripts %}
@@ -17,7 +16,7 @@
     jQuery(document).ready(function() {
         jQuery('#vmap').vectorMap(
             {
-            map: 'world_en',
+            map: 'germany_en',
             backgroundColor: '#a5bfdd',
             borderColor: '#818181',
             borderOpacity: 0.25,
@@ -39,6 +38,6 @@
     });
     </script>
     <script src="{{asset('jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
-    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.world.js')}}" type="text/javascript"></script>{% endblock %}
+    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.DE.js')}}" type="text/javascript"></script>{% endblock %}
 
 

@@ -10,6 +10,7 @@ use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\Pays;
 use web3tc\EchangeBundle\Entity\ContratEtude;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class EchangeController extends Controller
 {
@@ -18,11 +19,11 @@ class EchangeController extends Controller
      * @Template()
      */
     public function indexAction()
-    {    
-
-
+    {   
         $request = $this->get('request');
-        if ($request->getMethod() == 'POST') {                
+        if ($request->getMethod() == 'POST') {    
+            
+
                 $departement = new Departement();
                 $departement = $this->getDoctrine()
                     ->getManager()
@@ -59,7 +60,7 @@ class EchangeController extends Controller
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {                
             $arrayPays = $request->request->get('pays');
-            return $this->redirect($this->generateUrl('_carte', array('pays'=>$pays)));
+            return $this->redirect($this->generateUrl('_villes'));
         }
         
         return $this->render('web3tcEchangeBundle:Echange:carte.html.twig', array(
@@ -68,6 +69,8 @@ class EchangeController extends Controller
               ));
         
     }
+
+    
     /**
      * @Route("/contrat_etude", name="_contrat")
      * @Template()
@@ -92,7 +95,21 @@ class EchangeController extends Controller
         return $this->render('web3tcEchangeBundle:Echange:formulaire.html.twig', array(
             'form' => $form->createView(),
           ));
+    }
+
+
+    /**
+     * @Route("/Pays/{pays_code}", name="_pays")
+     * @Template()
+      * @ParamConverter("pays", options={"mapping": {"pays_code": "code"}})
+     */
+    public function PaysAction(Pays $pays)
+    {
+        return $this->render('web3tcEchangeBundle:Echange:carteSpe.html.twig', array(
+            'paysCode' => $pays->getCode(),
+          ));
         
       
     }
+
 }

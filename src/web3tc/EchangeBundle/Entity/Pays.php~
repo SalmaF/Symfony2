@@ -38,6 +38,13 @@ class Pays
      */
     private $nom;
 
+        /**
+     * @var string
+     *
+     * @ORM\Column(name="code", type="string", length=3)
+     */
+    private $code;
+    
     /**
      * @var string
      *
@@ -140,5 +147,38 @@ class Pays
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Add commentaires
+     *
+     * @param \web3tc\EchangeBundle\Entity\Commentaires $commentaires
+     * @return Pays
+     */
+    public function addCommentaire(\web3tc\EchangeBundle\Entity\Commentaires $commentaires)
+    {
+        $this->commentaires[] = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaires
+     *
+     * @param \web3tc\EchangeBundle\Entity\Commentaires $commentaires
+     */
+    public function removeCommentaire(\web3tc\EchangeBundle\Entity\Commentaires $commentaires)
+    {
+        $this->commentaires->removeElement($commentaires);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }
