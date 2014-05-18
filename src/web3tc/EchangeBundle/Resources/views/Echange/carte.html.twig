@@ -4,5 +4,28 @@
 
 
 {% block body %}
+<<<<<<< HEAD
 <h3> Carte des échanges pour le département: {{departement.nom}}</h3>
 {% endblock %}
+=======
+<h3>Selectionnez vos pays</h3>
+    <div class="well">
+        <form method="post" action="{{ path('_carte') }}">
+            <select name="pays" multiple class="col-lg-12" > 
+                {% for p in pays %}
+                        <option value="{{ p.nom }}">{{ p.nom }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-primary" />
+        </form>
+    </div>
+
+    
+{% endblock %}
+
+{% block javascript %}
+    
+            
+{% endblock %}
+
+>>>>>>> 22a8e0e92540d9452b5efc75a80b006f0848c988

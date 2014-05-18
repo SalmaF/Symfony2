@@ -1,6 +1,7 @@
 {# src/web3tc/EchangeBundle/Resources/views/Echange/formulaire.html.twig #}
 
 {% extends "::base.html.twig" %}
+<<<<<<< HEAD
 
 {% block body %}
 
@@ -85,6 +86,23 @@
     <script type="text/javascript">
         $(document).ready(function() {
             var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
+=======
+{% block body %}
+<h3>Formulaire de Contrat d'étude</h3>
+ 
+<div class="well">
+  <form method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <input type="submit" class="btn btn-primary" />
+  </form>
+</div>
+{% endblock %}
+    {% block javascript %}
+        
+<script type="text/javascript">
+    $(document).ready(function() {
+        var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
+>>>>>>> 22a8e0e92540d9452b5efc75a80b006f0848c988
 
             var $lienAjout = $('<a href="#" id="ajout_cours" class="btn">Ajouter un cours</a>');
             $container.append($lienAjout);
@@ -119,6 +137,7 @@
 
                 $prototype.append($lienSuppression);
 
+<<<<<<< HEAD
                 $lienSuppression.click(function(e) {
                     $prototype.remove();
                     e.preventDefault();
@@ -128,4 +147,14 @@
         });
     </script>
 
+=======
+            $lienSuppression.click(function(e) {
+                $prototype.remove();
+                e.preventDefault();
+                return false;
+            });
+        }
+    });
+</script>
+>>>>>>> 22a8e0e92540d9452b5efc75a80b006f0848c988
 {% endblock %}
