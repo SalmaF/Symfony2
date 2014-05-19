@@ -3,6 +3,9 @@
 namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use web3tc\EchangeBundle\Entity\Universite;
+//use web3tc\EchangeBundle\Entity\Cours;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ContratEtude
@@ -265,5 +268,28 @@ class ContratEtude
     public function getCours()
     {
         return $this->cours;
+    }
+
+    /**
+     * Add cours
+     *
+     * @param \web3tc\EchangeBundle\Entity\Cours $cours
+     * @return ContratEtude
+     */
+    public function addCour(\web3tc\EchangeBundle\Entity\Cours $cours)
+    {
+        $this->cours[] = $cours;
+
+        return $this;
+    }
+
+    /**
+     * Remove cours
+     *
+     * @param \web3tc\EchangeBundle\Entity\Cours $cours
+     */
+    public function removeCour(\web3tc\EchangeBundle\Entity\Cours $cours)
+    {
+        $this->cours->removeElement($cours);
     }
 }

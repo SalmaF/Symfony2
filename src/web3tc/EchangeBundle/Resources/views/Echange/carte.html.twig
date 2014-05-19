@@ -4,30 +4,12 @@
 {% block stylesheet %}
     {{ parent() }}
     <link href="{{asset('jqvmap/jqvmap/jqvmap.css')}}" media="screen" rel="stylesheet" type="text/css" />
-{% endblock %}
+{% endblock%}
 {% block body %}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<h3> Carte des échanges pour le département: {{departement.nom}}</h3>
-{% endblock %}
-=======
-<h3>Selectionnez vos pays</h3>
-    <div class="well">
-        <form method="post" action="{{ path('_carte') }}">
-            <select name="pays" multiple class="col-lg-12" > 
-                {% for p in pays %}
-                        <option value="{{ p.nom }}">{{ p.nom }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" class="btn btn-primary" />
-        </form>
-    </div>
-=======
->>>>>>> 6bbe6aeccaf844333689060fa7a8803f038f0602
 
     <h1> Selectionnez le pays dans lequel vous souhaitez partir</h1>
   <div id="vmap" style="width: 600px; height: 400px;"></div>
-  {% endblock %}
+{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
@@ -57,7 +39,7 @@
     });
     </script>
     <script src="{{asset('jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
-    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.world.js')}}" type="text/javascript"></script>{% endblock %}
+    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.world.js')}}" type="text/javascript"></script>
+{% endblock %}
 
 
->>>>>>> 22a8e0e92540d9452b5efc75a80b006f0848c988

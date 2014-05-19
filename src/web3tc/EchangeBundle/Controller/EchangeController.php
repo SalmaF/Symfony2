@@ -95,8 +95,8 @@ class EchangeController extends Controller
         return $this->render('web3tcEchangeBundle:Echange:formulaire.html.twig', array(
             'form' => $form->createView(),
           ));
-<<<<<<< HEAD
-=======
+
+
     }
 
 
@@ -110,9 +110,7 @@ class EchangeController extends Controller
         return $this->render('web3tcEchangeBundle:Echange:carteSpe.html.twig', array(
             'paysCode' => $pays->getCode(),
           ));
-        
-      
->>>>>>> 6bbe6aeccaf844333689060fa7a8803f038f0602
+
     }
 
 }
