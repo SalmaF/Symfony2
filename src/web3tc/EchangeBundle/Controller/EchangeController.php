@@ -106,10 +106,8 @@ class EchangeController extends Controller
     public function PaysAction(Pays $pays)
     {
         return $this->render('web3tcEchangeBundle:Echange:carteSpe.html.twig', array(
-            'paysCode' => $pays->getCode(),
+            'pays' => $pays,
           ));
-        
-      
     }
 
 }
