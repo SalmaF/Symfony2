@@ -28,7 +28,7 @@ class EchangeController extends Controller
                 $departement = $this->getDoctrine()
                     ->getManager()
                     ->getRepository('web3tcEchangeBundle:Departement')
-                    ->findOneByNom($request->request->get('departement')); //$request->query->get('departement')
+                    ->findOneByNom($request->request->get('departement'));
             return $this->redirect($this->generateUrl('_carte', array('departement_nom'=>$departement->getNom())));
         }
         
@@ -40,8 +40,6 @@ class EchangeController extends Controller
         return $this->render('web3tcEchangeBundle:Echange:index.html.twig', array(
             'departements' => $departements,
           ));
-        
-      
     }
  
     
@@ -91,9 +89,22 @@ class EchangeController extends Controller
                 return $this->redirect($this->generateUrl('_contrat'));
             }
         }
+        
+        $pays = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('web3tcEchangeBundle:Pays')
+                    ->findAll();
+        
+        $villes = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('web3tcEchangeBundle:Ville')
+                    ->findAll();
+        
 
         return $this->render('web3tcEchangeBundle:Echange:formulaire.html.twig', array(
             'form' => $form->createView(),
+            'pays' => $pays,
+            'villes' => $villes,
           ));
 
 

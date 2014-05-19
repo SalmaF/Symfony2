@@ -3,8 +3,6 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-
-    <h1> E-rasmus </h1>
     
     <h2> Mon contrat d'étude </h2>
     
@@ -18,61 +16,91 @@
             <p> Merci de bien remplir tous les champs ci-dessous : </p>
             <h3> INFORMATIONS PERSONNELLES : </h3>
          
-            <div class="form-group">
-                {{ form_label(form.nomEleve, "Nom ") }}
-                <div class="col-sm-10">
-                    {{ form_errors(form.nomEleve) }}
-                    {{ form_widget(form.nomEleve) }}
-                </div>
-            </div>
-            
-            <div class="form-group">
-                {{ form_label(form.prenomEleve, "Prénom ") }}
-                <div class="col-sm-10">
+            <div class="form-group col-lg-12">
+                {{ form_label(form.nomEleve, 'Nom', {'label_attr': {'class': 'col-lg-2' } } ) }}
+                {{ form_errors(form.nomEleve) }}
+                {{ form_widget(form.nomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                   
+            </div>  
+            <div class="form-group col-lg-12">
+                {{ form_label(form.prenomEleve,'Prénom', {'label_attr': {'class': 'col-lg-2' } } ) }}
                     {{ form_errors(form.prenomEleve) }}
                     {{ form_widget(form.prenomEleve) }}
-                </div>
+                    {{ form_row(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
             </div>
                 
-            <div class="form-group">
-                {{ form_label(form.departement, " Département INSA ") }}
-                <div class="col-sm-2">
+                
+            <div class="form-group col-lg-12">
+                {{ form_label(form.departement, ' Département INSA ', {'label_attr': {'class': 'col-lg-2' } }) }}
+                <div class="col-lg-3">
                     {{ form_errors(form.departement) }}
-                    {{ form_widget(form.departement) }}
-                </div> 
+                    {{ form_widget(form.departement, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>
+                
             </div>
                 
-            <div class="form-group">
-                {{ form_label(form.anneeEnCours, " Année en cours ") }}
-                <div class="col-sm-10">
+            <div class="form-group col-lg-12">
+                {{ form_label(form.anneeEnCours, ' Année en cours ', {'label_attr': {'class': 'col-lg-2' } }) }}
+                <div class="col-lg-3">
                     {{ form_errors(form.anneeEnCours) }}
-                    {{ form_widget(form.anneeEnCours) }}
+                    {{ form_widget(form.anneeEnCours, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
                 </div>  
             </div>
                 
-            <div class="form-group">
-                <p> {{ form_label(form.dureeDuSejour, " Durée de l'échange ") }}</p>
-                <div class="col-sm-2">
+            <div class="form-group col-lg-12">
+                <p> {{ form_label(form.dureeDuSejour, ' Durée de l\'échange ', {'label_attr': {'class': 'col-lg-2' } }) }}</p>
+                <div class="col-lg-3">
                     {{ form_errors(form.dureeDuSejour) }}
-                    {{ form_widget(form.dureeDuSejour) }}
+                    {{ form_widget(form.dureeDuSejour, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
                 </div>  
             </div>
                 
             <h3> INFORMATIONS UNIVERSITE : </h3>
-            <div class="universite">
-                <p> {{ form_label(form.universite, " Université ") }}</p>
-                <div class="col-sm-10">
+            <div class="universite form-in-line col-lg-12">
+                {#<p> {{ form_label(form.universite, ' Université ', {'label_attr': {'class': 'col-lg-2' } }) }}</p>
+                 <div class="col-lg-3">
                     {{ form_errors(form.universite) }}
-                    {{ form_widget(form.universite) }}
-                </div>  
+                    {{ form_widget(form.universite, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  #}
+                    
+               <div class="form-group col-lg-12">
+                    <p> {{ form_label(form.universite.nom, ' Nom de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}</p>
+                    <div class="col-lg-4">
+                        {{ form_errors(form.universite.nom) }}
+                        {{ form_widget(form.universite.nom, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                    </div>  
+                </div>
+                    
+                <div class="form-group col-lg-12">
+                    <p> {{ form_label(form.universite.nom, ' Pays de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}</p>
+                    <div class="col-lg-4">
+                        <select name="pays"> 
+                            {% for pays in pays %}
+                                <option value="{{ pays.nom }}"> {{ pays.nom }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>  
+                </div>    
+                
+                <div class="form-group col-lg-12">
+                    <p> {{ form_label(form.universite.nom, ' Ville de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}</p>
+                    <div class="col-lg-4">
+                        <select name="ville"> 
+                            {% for ville in villes %}
+                                <option value="{{ ville.nom }}"> {{ ville.nom }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>  
+                </div>
+            
             </div>
             
             <h3> INFORMATIONS CURSUS : </h3>
-            <div class="cours">
-                {{ form_label(form.cours, " Cours ") }}
-                <div class="col-sm-10">
+            <div class="cours col-lg-12">
+                {{ form_label(form.cours, " Cours ", {'label_attr': {'class': 'col-lg-2' } } ) }}
+                <div class="col-lg-3">
                     {{ form_errors(form.cours) }}
-                    {{ form_widget(form.cours) }}
+                    {{ form_widget(form.cours, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
                 </div>  
             </div>
            

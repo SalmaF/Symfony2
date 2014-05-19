@@ -15,11 +15,11 @@ class ContratEtudeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomEleve', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
-            ->add('prenomEleve', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('nomEleve', 'text', array('attr' => array( 'class' => 'control-label' )))
+            ->add('prenomEleve', 'text', array('attr' => array( 'class' => 'control-label' )))
             ->add('anneeEnCours','choice', array('attr' => array( 'class' => 'form-control' )))
             ->add('dureeDuSejour', 'choice', array('attr' => array( 'class' => 'form-control' )))
-            ->add('departement', 'text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
+            ->add('departement', 'choice', array('attr' => array( 'class' => 'form-control' )))
             ->add('universite',new UniversiteType())
             ->add('cours', new CoursType())
             //->add('cours',  new CoursType(),array(
