@@ -22,6 +22,11 @@ class Pays
     private $id;
 
     /**
+     * @var integer
+     */
+    private $nbContratsPays;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Ville", mappedBy="pays")
      */
     private $ville;
@@ -53,6 +58,24 @@ class Pays
     private $presentation;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbContratsPays = $this->getContratEtude()->getNbContratsPays();
+      $this->getContratEtude()->setNbContratsPays($nbContratsPays+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbContratsPays = $this->getContratEtude()->getNbContratsPays();
+      $this->getContratEtude()->setNbContratsPays($nbContratsPays-1);
+    }
+    
     /**
      * Get id
      *
@@ -180,5 +203,28 @@ class Pays
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     * @return Pays
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string 
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

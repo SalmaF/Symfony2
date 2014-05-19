@@ -20,7 +20,12 @@ class Ville
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
+    /**
+     * @var integer
+     */
+    private $nbContrats;
+    
     /**
      * @var string
      *
@@ -52,6 +57,24 @@ class Ville
     private $presentation;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbContratsVille = $this->getContratEtude()->getNbContratsVille();
+      $this->getContratEtude()->setNbContratsVille($nbContratsVille+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbContratsVille = $this->getContratEtude()->getNbContratsVille();
+      $this->getContratEtude()->setNbContrats($nbContratsVille-1);
+    }
+    
     /**
      * Get id
      *

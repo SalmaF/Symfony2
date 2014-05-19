@@ -22,6 +22,11 @@ class Pays
     private $id;
 
     /**
+     * @var integer
+     */
+    private $nbContratsPays;
+    
+    /**
      * @ORM\OneToMany(targetEntity="Ville", mappedBy="pays")
      */
     private $ville;
@@ -53,6 +58,24 @@ class Pays
     private $presentation;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbContratsPays = $this->getContratEtude()->getNbContratsPays();
+      $this->getContratEtude()->setNbContratsPays($nbContratsPays+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbContratsPays = $this->getContratEtude()->getNbContratsPays();
+      $this->getContratEtude()->setNbContratsPays($nbContratsPays-1);
+    }
+    
     /**
      * Get id
      *

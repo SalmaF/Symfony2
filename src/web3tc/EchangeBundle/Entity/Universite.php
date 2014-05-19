@@ -22,6 +22,11 @@ class Universite
     private $id;
     
     /**
+     * @var integer
+     */
+    private $nbContratsUniversite;
+    
+    /**
      * @ORM\OneToMany(targetEntity="ContratEtude", mappedBy="universite")
      */
     private $contratEtude;
@@ -52,6 +57,24 @@ class Universite
     private $presentation;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbContratsUniversite = $this->getContratEtude()->getNbContratsUniversite();
+      $this->getContratEtude()->setNbContratsUniversite($nbContratsUniversite+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbContratsUniversite = $this->getContratEtude()->getNbContratsUniversite();
+      $this->getContratEtude()->setNbContratsUniversite($nbContratsUniversite-1);
+    }
+    
     /**
      * Get id
      *

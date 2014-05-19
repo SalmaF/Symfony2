@@ -3,6 +3,9 @@
 namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use web3tc\EchangeBundle\Entity\Universite;
+//use web3tc\EchangeBundle\Entity\Cours;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ContratEtude
@@ -28,12 +31,14 @@ class ContratEtude
     private $departement;
     
     /**
+     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Universite")
      * @ORM\ManyToOne(targetEntity="Universite")
      * @ORM\JoinColumn(nullable=false)
      */
     private $universite;
     
     /**
+     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Cours")
      * @ORM\ManyToMany(targetEntity="Cours")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -208,7 +213,7 @@ class ContratEtude
      * @param \web3tc\EchangeBundle\Entity\Universite $universite
      * @return ContratEtude
      */
-    public function setUniversite(\web3tc\EchangeBundle\Entity\Universite $universite)
+    public function setUniversite(Universite $universite = null)
     {
         $this->universite = $universite;
 
@@ -223,6 +228,46 @@ class ContratEtude
     public function getUniversite()
     {
         return $this->universite;
+    }
+
+     public function setCours(Cours $cours = null)
+    {
+        $this->cours = $cours;
+
+        return $this;
+    }
+    
+    /**
+     * Add cours
+     *
+     * @param \web3tc\EchangeBundle\Entity\Cours $cours
+     * @return ContratEtude
+     */
+    public function addCours(\web3tc\EchangeBundle\Entity\Cours $cours)
+    {
+        $this->cours[] = $cours;
+
+        return $this;
+    }
+
+    /**
+     * Remove cours
+     *
+     * @param \web3tc\EchangeBundle\Entity\Cours $cours
+     */
+    public function removeCours(\web3tc\EchangeBundle\Entity\Cours $cours)
+    {
+        $this->cours->removeElement($cours);
+    }
+
+    /**
+     * Get cours
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCours()
+    {
+        return $this->cours;
     }
 
     /**
@@ -246,15 +291,5 @@ class ContratEtude
     public function removeCour(\web3tc\EchangeBundle\Entity\Cours $cours)
     {
         $this->cours->removeElement($cours);
-    }
-
-    /**
-     * Get cours
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCours()
-    {
-        return $this->cours;
     }
 }

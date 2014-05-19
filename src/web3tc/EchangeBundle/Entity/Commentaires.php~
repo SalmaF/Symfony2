@@ -20,6 +20,11 @@ class Commentaires
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var integer
+     */
+    private $nbCommentaires;
 
     /**
      * @ORM\ManyToOne(targetEntity="Ville", inversedBy="commentaires")
@@ -54,6 +59,24 @@ class Commentaires
     private $contenu;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbCommentaires = $this->getArticle()->getNbCommentaires();
+      $this->getArticle()->setNbCommentaires($nbCommentaires+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbCommentaires = $this->getArticle()->getNbCommentaires();
+      $this->getArticle()->setNbCommentaires($nbCommentaires-1);
+    }
+    
     /**
      * Get id
      *
@@ -108,5 +131,74 @@ class Commentaires
     public function getContenu()
     {
         return $this->contenu;
+    }
+
+    /**
+     * Set ville
+     *
+     * @param \web3tc\EchangeBundle\Entity\Ville $ville
+     * @return Commentaires
+     */
+    public function setVille(\web3tc\EchangeBundle\Entity\Ville $ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return \web3tc\EchangeBundle\Entity\Ville 
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set universite
+     *
+     * @param \web3tc\EchangeBundle\Entity\Universite $universite
+     * @return Commentaires
+     */
+    public function setUniversite(\web3tc\EchangeBundle\Entity\Universite $universite)
+    {
+        $this->universite = $universite;
+
+        return $this;
+    }
+
+    /**
+     * Get universite
+     *
+     * @return \web3tc\EchangeBundle\Entity\Universite 
+     */
+    public function getUniversite()
+    {
+        return $this->universite;
+    }
+
+    /**
+     * Set pays
+     *
+     * @param \web3tc\EchangeBundle\Entity\Pays $pays
+     * @return Commentaires
+     */
+    public function setPays(\web3tc\EchangeBundle\Entity\Pays $pays)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays
+     *
+     * @return \web3tc\EchangeBundle\Entity\Pays 
+     */
+    public function getPays()
+    {
+        return $this->pays;
     }
 }

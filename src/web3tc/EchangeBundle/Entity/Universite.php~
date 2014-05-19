@@ -22,6 +22,11 @@ class Universite
     private $id;
     
     /**
+     * @var integer
+     */
+    private $nbContratsUniversite;
+    
+    /**
      * @ORM\OneToMany(targetEntity="ContratEtude", mappedBy="universite")
      */
     private $contratEtude;
@@ -52,6 +57,24 @@ class Universite
     private $presentation;
 
 
+    /**
+     * @ORM\prePersist
+     */
+    public function increase()
+    {
+      $nbContratsUniversite = $this->getContratEtude()->getNbContratsUniversite();
+      $this->getContratEtude()->setNbContratsUniversite($nbContratsUniversite+1);
+    }
+  
+    /**
+     * @ORM\preRemove
+     */
+    public function decrease()
+    {
+      $nbContratsUniversite = $this->getContratEtude()->getNbContratsUniversite();
+      $this->getContratEtude()->setNbContratsUniversite($nbContratsUniversite-1);
+    }
+    
     /**
      * Get id
      *
@@ -169,5 +192,38 @@ class Universite
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Add commentaires
+     *
+     * @param \web3tc\EchangeBundle\Entity\Commentaires $commentaires
+     * @return Universite
+     */
+    public function addCommentaire(\web3tc\EchangeBundle\Entity\Commentaires $commentaires)
+    {
+        $this->commentaires[] = $commentaires;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaires
+     *
+     * @param \web3tc\EchangeBundle\Entity\Commentaires $commentaires
+     */
+    public function removeCommentaire(\web3tc\EchangeBundle\Entity\Commentaires $commentaires)
+    {
+        $this->commentaires->removeElement($commentaires);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
     }
 }

@@ -4,12 +4,12 @@
 {% block stylesheet %}
     {{ parent() }}
     <link href="{{asset('jqvmap/jqvmap/jqvmap.css')}}" media="screen" rel="stylesheet" type="text/css" />
-{% endblock %}
+{% endblock%}
 {% block body %}
 
     <h1> Selectionnez le pays dans lequel vous souhaitez partir</h1>
-  <div id="vmap" style="width: 900px; height: 600px;"></div>
-  {% endblock %}
+  <div class="col-md-offset-1" id="vmap" style="width: 800px; height: 400px;"></div>
+{% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
