@@ -7,7 +7,8 @@
 {% endblock %}
 {% block body %}
 
- <div id="vmap" name="{{pays.nom}}" style="margin-left : 100px; width: 1000px; height: 600px;"></div>
+    <h2> Echange Universitaires - {{pays.nom}}</h2>
+ <div id="vmap" name="{{pays.nom}}" style="width: 1000px; height: 600px;"></div>
   {% endblock %}
 
 {% block javascripts %}
@@ -20,13 +21,13 @@
         vmap.vectorMap(
             {
             map: pays,
-            backgroundColor: '#a5bfdd',
+            backgroundColor: null,
             borderColor: '#818181',
             borderOpacity: 0.25,
             borderWidth: 1,
-            color: '#f4f3f0',
+            color: '330099',
             enableZoom: true,
-            hoverColor: '#c9dfaf',
+            hoverColor: '#330000',
             hoverOpacity: null,
             normalizeFunction: 'linear',
             scaleColors: ['#b6d6ff', '#005ace'],
