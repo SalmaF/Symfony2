@@ -3,11 +3,27 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/formulaire.html.twig</file>
-            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Controller/EchangeController.php</file>
-            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Form/ContratEtudeType.php</file>
-            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Form/UniversiteType.php</file>
-            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/index.html.twig</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.france.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.usa.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.europe.js</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/formulaire.html.twig</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/carteSpe.html.twig</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.inde.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.belgique.js</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Entity/Pays.php</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.argentine.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.bresil.js</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/carte.html.twig</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Entity/PaysRepository.php</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/index.html.twig</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.australie.js</file>
+            <file>file:/var/www/html/Symfony2/app/config/parameters.yml</file>
+            <file>file:/var/www/html/Symfony2/src/web3tc/EchangeBundle/Controller/EchangeController.php</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.russie.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.chine.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.algerie.js</file>
+            <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.allemagne.js</file>
+            <file>file:/var/www/html/Symfony2/app/Resources/views/base.html.twig</file>
         </group>
     </open-files>
 </project-private>
