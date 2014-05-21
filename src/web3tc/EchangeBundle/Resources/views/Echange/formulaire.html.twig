@@ -6,8 +6,6 @@
     
     <h2> Mon contrat d'étude </h2>
     
-    <p> Merci de bien remplir tous les champs ci-dessous : </p>
-
     <div class="jumbotron">
         <form class="form-in-line" method="post" role="form"{{ form_enctype(form) }}>
             
@@ -24,9 +22,9 @@
             </div>  
             <div class="form-group col-lg-12">
                 {{ form_label(form.prenomEleve,'Prénom', {'label_attr': {'class': 'col-lg-2' } } ) }}
-                    {{ form_errors(form.prenomEleve) }}
-                    {{ form_widget(form.prenomEleve) }}
-                    {{ form_row(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                {{ form_errors(form.prenomEleve) }}
+                {{ form_widget(form.prenomEleve) }}
+                {{ form_row(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
             </div>
                 
                 
