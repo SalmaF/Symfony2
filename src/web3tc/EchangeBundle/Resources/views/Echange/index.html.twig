@@ -7,8 +7,8 @@
                 <h2> Présentation du Projet</h2>
                 <br/>
                 <p>Bienvenue sur notre site WEB ami Insalien.</p>
-                <p>Notre applicaiton a pour but de facilité la recherche des étudiants qui désirent partir à l'international. Nous savons tous comme il est difficile de créer son contrat d'étude et de le faire valider ! C'est pourquoi notre site a pour objectif de conserver et organiser tous les contrats d'étude validés afin de facilité votre démarche. </p>
-                <p>Il suffit pour toi de rentrer tes identifiants INSA dans Login, sélectionner ton département et c'est parti: tu as accès à notre base de donnée !</p>
+                <p>Notre application a pour but de faciliter la recherche des étudiants qui désirent partir à l'international. Nous savons tous comme il est difficile de créer son contrat d'étude et de le faire valider ! C'est pourquoi notre site a pour objectif de conserver et organiser tous les contrats d'étude validés afin de faciliter votre démarche. </p>
+                <p>Il suffit pour toi de rentrer tes identifiants INSA dans Login, sélectionner ton département et c'est parti: tu as accès à notre base de données !</p>
                 <p>Si en revanche tu es une âme charitable qui vient de vivre une superbe expérience à l'étranger, dépose ton contrat d'étude sur le bouton adéquat. Et n'hésite pas à donner ton impression via d'intéressants commentaires. Pensez que sans vous le site n'est rien.</p>
                 <br/>
                 <br/>
@@ -17,17 +17,23 @@
         </div>    
         <div class="col-xs-6 col-md-6">
             <div class="well">
-                <img class="img-responsive img-rounded" style="width: 700px;" src="http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg">
+                <img class="img-responsive img-thumbnail" style="width: 700px;" src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
             </div> 
             <div class="well">
-                <form class="form-inline" method="post" action="{{ path('_acceuil') }}">
+
+                <form class="form-horizontal" method="post" action="{{ path('_acceuil') }}">
                     <div class="center-block">
+                        <p>Sélectionne ton département ...</p>
                         <select name="departement" class="form-control">  
                             {% for departement in departements %}
                                 <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
                             {% endfor %}
                         </select>
                         <input type="submit" class="btn btn-primary" />
+                    </div>
+                    <div class="right-block">
+                        <p>... ou envoie ton contrat validé :
+                        <a href="{{ asset('app_dev.php/Echange/contrat_etude') }}" class="btn btn-primary btn-lg active" role="button"> Envoyer </a>
                     </div>
                 </form>
             </div>
