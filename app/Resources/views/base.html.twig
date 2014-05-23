@@ -6,55 +6,54 @@
         {% block stylesheets %}
                 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
                 <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap/css/bootstrap.min.css') }}" />
+                <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}" />
         {% endblock %}
         
     </head>
-    <body>
-        
-        
-    
-        
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container-fluid">
+   
+    <body>            
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
 
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">E-rasmus</a>
-            </div>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">E-rasmus</a>
+                </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Notre projet</a></li>
-                    <li><a href="#">Consulter des échanges</a></li>
-                    <li><a href="#">Déposer mon contrat d'étude</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Notre projet</a></li>
+                        <li><a href="#">Consulter des échanges</a></li>
+                        <li><a href="#">Déposer mon contrat d'étude</a></li>
+                    </ul>
 
-                <button type="button" class="btn btn-default btn-lg">
-                    <span class="glyphicon glyphicon-home"></span>
-                </button>
+                    <button type="button" class="btn btn-default btn-lg">
+                        <span class="glyphicon glyphicon-home"></span>
+                    </button>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">A propos de nous</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-        
-    <div class="container">        
-        
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">A propos de nous</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container">
+            <div class="page-header">
+                <h1>  E-RASMUS  </h1>
+            </div>            
         {% block body %}{% endblock %}
+        </div>
         
-    </div>
         {% block javascripts %}
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
             <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
-           
-            
         {% endblock %}
-    </body>
+    </body>    
+    
 </html>
