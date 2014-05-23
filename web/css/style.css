@@ -1,0 +1,35 @@
+body {
+	/* Anciens navigateurs */
+	background: #F0F0F0 url("body-bg.png") repeat-x top;
+	-o-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	-webkit-background-size: 100% 100%;
+	background-size: 100% 100%;
+	/* Navigateurs récents */
+	background: -webkit-gradient(
+		linear,
+		left top, right bottom,
+		from(#C0C0C0),
+		to(#F0F0F0)
+	);
+	background: -webkit-linear-gradient(
+		left top,
+		#C0C0C0,
+		#F0F0F0
+	);
+	background: -moz-linear-gradient(
+		left top,
+		#C0C0C0,
+		#F0F0F0
+	);
+	background: -o-linear-gradient(
+		left top,
+		#C0C0C0,
+		#F0F0F0
+	);
+	background: linear-gradient(
+		left top,
+		#C0C0C0,
+		#F0F0F0
+	);
+}

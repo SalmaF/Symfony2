@@ -110,7 +110,7 @@ class EchangeController extends Controller
 
     }
 
-
+    
     /**
      * @Route("/Pays/{pays_code}", name="_pays")
      * @Template()
@@ -124,4 +124,36 @@ class EchangeController extends Controller
 
     }
 
+    
+    
+    /**
+    * @Route("/Selection/Contrat/{departement_nom}/{universite_nom}", name="_voirContrat")
+    * @Template()
+    * @ParamConverter("departement_nom", options={"mapping": {"departement_nom": "nom"}})
+     *
+    * @ParamConverter("universite", options={"mapping": {"universite_nom": "nom"}})
+    */    
+    public function contratsAction(Departement $departement,Universite $universite)
+    {
+        
+        $contrats = $this->getDoctrine()
+                        ->getManager()
+                        ->getRepository('web3tcEchangeBundle:Contrat')
+                        ->findAll();
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {            
+            return $this->redirect($this->generateUrl('_oaccueil'));
+        }
+        
+        return $this->render('web3tcEchangeBundle:Echange:voirContrat.html.twig', array(
+              'departement'=>$departement,
+              'universite'=>$universite,
+              ));
+        
+    }
+
+    
+ 
+    
+    
 }
