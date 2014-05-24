@@ -90,21 +90,8 @@ class EchangeController extends Controller
             }
         }
         
-        $pays = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('web3tcEchangeBundle:Pays')
-                    ->findAll();
-        
-        $villes = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('web3tcEchangeBundle:Ville')
-                    ->findAll();
-        
-
         return $this->render('web3tcEchangeBundle:Echange:formulaire.html.twig', array(
             'form' => $form->createView(),
-            'pays' => $pays,
-            'villes' => $villes,
           ));
 
 

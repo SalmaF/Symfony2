@@ -1,12 +1,14 @@
 body {
-	/* Anciens navigateurs */
-	background: #F0F0F0 url("body-bg.png") repeat-x top;
+    /*
+        * Navigateurs Anciens
+    background: #F0F0F0 url("body-bg.png") repeat-x top;
 	-o-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
 	-webkit-background-size: 100% 100%;
 	background-size: 100% 100%;
-	/* Navigateurs récents */
-	background: -webkit-gradient(
+        
+	Navigateurs récents 
+        background: -webkit-gradient(
 		linear,
 		left top, right bottom,
 		from(#C0C0C0),
@@ -32,4 +34,7 @@ body {
 		#C0C0C0,
 		#F0F0F0
 	);
+    */
+    
+    background-image: url('../images/bck.jpg');
 }

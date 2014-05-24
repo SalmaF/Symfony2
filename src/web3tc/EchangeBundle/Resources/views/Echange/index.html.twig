@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="row">
-        <div class="col-xs-14 col-md-6">
+        <div class="col-xs-6 col-md-6">
             <div class="well">
                 <h2> Présentation du Projet</h2>
                 <br/>
@@ -20,22 +20,21 @@
                 <img class="img-responsive img-thumbnail" style="width: 700px;" src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
             </div> 
             <div class="well">
-
-                <form class="form-horizontal" method="post" action="{{ path('_acceuil') }}">
-                    <div class="col-md-6">
+                <form class="form-row" method="post" action="{{ path('_acceuil') }}">
+                    <div class="well">
                         <p>Sélectionne ton département ...</p>
-                        <select name="departement" class="form-control">  
+                        <select name="departement" class="form-control col-md-6">  
                             {% for departement in departements %}
                                 <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
                             {% endfor %}
                         </select>
                         <input type="submit" class="btn btn-primary" />
                     </div>
-                    <div class="block active col-md-6 col-md-offset-3">
+                    {#<div class="block active col-md-6 col-md-offset-3">
                         <p>... ou envoie ton contrat validé :
                         <br/>
                         <a href="{{ asset('app_dev.php/Echange/contrat_etude') }}" class="btn btn-primary btn-lg active" role="button"> Envoyer </a>
-                    </div>
+                    </div>#}
                 </form>
             </div>
         </div>

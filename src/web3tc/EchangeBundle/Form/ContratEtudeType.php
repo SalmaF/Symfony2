@@ -17,9 +17,14 @@ class ContratEtudeType extends AbstractType
         $builder
             ->add('nomEleve', 'text', array('attr' => array( 'class' => 'control-label' )))
             ->add('prenomEleve', 'text', array('attr' => array( 'class' => 'control-label' )))
-            ->add('anneeEnCours','choice', array('attr' => array( 'class' => 'form-control' )))
-            ->add('dureeDuSejour', 'choice', array('attr' => array( 'class' => 'form-control' )))
-            ->add('departement', 'choice', array('attr' => array( 'class' => 'form-control' )))
+            ->add('anneeEnCours','choice', array('choices' => array( '3' => '3ème année',
+                                                                       '4' => '4ème année')))
+            ->add('dureeDuSejour','choice', array('choices' => array( '1' => 'Semestre 1',
+                                                                       '2' => 'Semestre 2',
+                                                                       'A' => 'Année')))
+            ->add('departement', 'entity', array('class' => 'web3tcEchangeBundle:Departement',
+                                                 'property' => 'nom',
+                                                 'multiple' => false))
             ->add('universite',new UniversiteType())
             ->add('cours', new CoursType())
             //->add('cours',  new CoursType(),array(
