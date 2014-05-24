@@ -43,7 +43,28 @@ class Pays
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alpha1", type="string", length=255)
+     */
+    private $alpha1;
+
         /**
+     * @var string
+     *
+     * @ORM\Column(name="alpha2", type="string", length=255)
+     */
+    private $alpha2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_gb", type="string", length=255)
+     */
+    private $nomEn;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=3)
@@ -226,5 +247,74 @@ class Pays
     public function getCode()
     {
         return $this->code;
+    }
+
+    /**
+     * Set alpha1
+     *
+     * @param string $alpha1
+     * @return Pays
+     */
+    public function setAlpha1($alpha1)
+    {
+        $this->alpha1 = $alpha1;
+
+        return $this;
+    }
+
+    /**
+     * Get alpha1
+     *
+     * @return string 
+     */
+    public function getAlpha1()
+    {
+        return $this->alpha1;
+    }
+
+    /**
+     * Set alpha2
+     *
+     * @param string $alpha2
+     * @return Pays
+     */
+    public function setAlpha2($alpha2)
+    {
+        $this->alpha2 = $alpha2;
+
+        return $this;
+    }
+
+    /**
+     * Get alpha2
+     *
+     * @return string 
+     */
+    public function getAlpha2()
+    {
+        return $this->alpha2;
+    }
+
+    /**
+     * Set nomEn
+     *
+     * @param string $nomEn
+     * @return Pays
+     */
+    public function setNomEn($nomEn)
+    {
+        $this->nomEn = $nomEn;
+
+        return $this;
+    }
+
+    /**
+     * Get nomEn
+     *
+     * @return string 
+     */
+    public function getNomEn()
+    {
+        return $this->nomEn;
     }
 }

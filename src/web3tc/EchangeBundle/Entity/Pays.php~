@@ -43,7 +43,28 @@ class Pays
      */
     private $nom;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="alpha1", type="string", length=255)
+     */
+    private $alpha1;
+
         /**
+     * @var string
+     *
+     * @ORM\Column(name="alpha2", type="string", length=255)
+     */
+    private $alpha2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_gb", type="string", length=255)
+     */
+    private $nomEn;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="code", type="string", length=3)
