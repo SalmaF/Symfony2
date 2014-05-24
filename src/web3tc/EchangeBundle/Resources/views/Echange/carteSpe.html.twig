@@ -7,7 +7,7 @@
 {% endblock %}
 {% block body %}
 
-    <h2> Echanges Universitaires - {{pays.nom}}</h2>
+    <h3> Echanges Universitaires - {{pays.nom}}</h3>
  <div class="col-md-offset-1" id="vmap" name="{{pays.nom}}" style="width: 1000px; height: 600px;"></div>
   {% endblock %}
 
@@ -25,12 +25,12 @@
             borderColor: '#818181',
             borderOpacity: 0.25,
             borderWidth: 1,
-            color: '330099',
+            color: '#0B3861',
             enableZoom: true,
-            hoverColor: '#330000',
-            hoverOpacity: null,
-            normalizeFunction: 'linear',
-            scaleColors: ['#b6d6ff', '#005ace'],
+            hoverColor: '#DF7401',
+            hoverOpacity: 0.3,
+            normalizeFunction: 'polynomial',
+            scaleColors: ['#C8EEFF', '#006491'],
             selectedColor: '#c9dfaf',
             selectedRegion: null,
             showTooltip: true,
