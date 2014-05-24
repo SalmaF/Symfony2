@@ -17,7 +17,9 @@ class CoursType extends AbstractType
         $builder
             ->add('numero','text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
             ->add('titre','text', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
-            ->add('semestre','choice', array('attr' => array( 'class' => 'form-control' )))
+            ->add('semestre','choice', array('choices' => array( '1' => 'Semestre 1',
+                                                                 '2' => 'Semestre 2',
+                                                                 'A' => 'Année' )))
             ->add('credits','number', array('attr' => array( 'class' => 'col-sm-2 control-label' )))
         ;
     }
