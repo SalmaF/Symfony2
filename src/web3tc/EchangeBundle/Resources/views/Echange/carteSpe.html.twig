@@ -34,9 +34,10 @@
             selectedColor: '#c9dfaf',
             selectedRegion: null,
             showTooltip: true,
-            onLabelShow: function(element, code, region)
+            onLabelShow: function(event, label, code)
             {
-                
+                if(sample_data[code] > 0)
+                    label.append(': '+sample_data[code]+' Views'); 
             },
             onRegionClick: function(element, code, region)
             {
