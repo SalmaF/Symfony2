@@ -23,6 +23,7 @@ class Pays
 
     /**
      * @var integer
+     * @ORM\Column(name="nbContratsPays", type="integer")
      */
     private $nbContratsPays;
     
