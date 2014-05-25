@@ -9,13 +9,16 @@
 
 {% block body %}
     
-
-    <h2>Contrats d'études des années précèdentes pour l'université :<br/>
-    <small>{{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}</small></h2>
+    <h2>
+        <strong> Département </strong> {{ app.session.get('departement') }}</br>
+    <strong>Université </strong>
+    {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
+    <small>Contrats d'études des années précèdentes</small>
+    </h2>
     
-    <div class="col-md-5">
+    <div class="col-md-12">
         {% for contrat in contrats %}
-            <div class="well"><a href="{{path('_acceuil')}}">
+            <div class="well col-md-offset-1 col-md-5"><a href="{{path('_acceuil')}}">
                 <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
                 <strong>Prénom :</strong> {{contrat.prenomEleve}}<br/>
                 <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}

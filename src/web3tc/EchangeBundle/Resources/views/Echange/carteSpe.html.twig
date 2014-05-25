@@ -18,7 +18,7 @@
                     <select onchange="hide()" name="universite" class=" form-control">  
                         <option id="to_hide" name="choisir" value="choisir">Choisissez votre université</option>
                         {% for universite in universites %}
-                            <option  value="{{ universite.nom }}"> {{ universite.nom }} </option>
+                            <option  value="{{ universite.nom }}"> {{ universite.nom }} ({{universite.nbContratsUniversite }} contrats) </option>
                         {% endfor %}
                     </select>
                     <br/><br/>
