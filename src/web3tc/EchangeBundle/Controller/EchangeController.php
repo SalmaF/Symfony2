@@ -54,11 +54,7 @@ class EchangeController extends Controller
         
         $session = new Session();
         $session->start();
-// ajoute des messages flash
-$session->getFlashBag()->add('warning', 'Your config file is writable, it should be set read-only');
-$session->getFlashBag()->add('error', 'Failed to update name');
-$session->getFlashBag()->add('error', 'Another error');
-        // définit et récupère des attributs de session
+     // définit et récupère des attributs de session
         $session->set('departement', $departement->getNom() );
         
         $pays = $this->getDoctrine()
@@ -132,7 +128,7 @@ $session->getFlashBag()->add('error', 'Another error');
     /**
     * @Route("/Selection/Contrat/{departement_nom}", name="_voirContrat")
     * @Template()
-    * @ParamConverter("departement_nom", options={"mapping": {"departement_nom": "nom"}})
+    * @ParamConverter("departement", options={"mapping": {"departement_nom": "nom"}})
      *
      */
     public function contratsAction(Departement $departement)
@@ -143,15 +139,24 @@ $session->getFlashBag()->add('error', 'Another error');
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {            
             //On arrive initialement sur la page avec une requete detype POST
+            $nomUniv = $request->request->get('universite');
             $universite = $this->getDoctrine()
                         ->getManager()
                         ->getRepository('web3tcEchangeBundle:Universite')
-                        ->findOneByNom($request->request->get('universite')); 
+                        ->findOneByNom($nomUniv);
+            
+            $contrats = $this->getDoctrine()
+                        ->getManager()
+                        ->getRepository('web3tcEchangeBundle:ContratEtude')
+                        ->findByUniversite($universite);
+            
         }
         
         return $this->render('web3tcEchangeBundle:Echange:voirContrat.html.twig', array(
               'departement'=>$departement,
               'universite'=>$universite,
+            'contrats'=>$contrats,
+            'nomUniv'=>$nomUniv
               ));
         
     }

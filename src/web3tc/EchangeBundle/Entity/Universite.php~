@@ -23,6 +23,8 @@ class Universite
     
     /**
      * @var integer
+     * 
+      * @ORM\Column(name="nbContrats", type="integer")
      */
     private $nbContratsUniversite;
     
@@ -225,5 +227,28 @@ class Universite
     public function getCommentaires()
     {
         return $this->commentaires;
+    }
+
+    /**
+     * Set nbContratsUniversite
+     *
+     * @param integer $nbContratsUniversite
+     * @return Universite
+     */
+    public function setNbContratsUniversite($nbContratsUniversite)
+    {
+        $this->nbContratsUniversite = $nbContratsUniversite;
+
+        return $this;
+    }
+
+    /**
+     * Get nbContratsUniversite
+     *
+     * @return integer 
+     */
+    public function getNbContratsUniversite()
+    {
+        return $this->nbContratsUniversite;
     }
 }

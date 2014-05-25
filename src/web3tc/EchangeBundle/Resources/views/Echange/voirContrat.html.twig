@@ -8,11 +8,24 @@
 {% endblock%}
 
 {% block body %}
-
-    <h1> Selectionnez le pays dans lequel vous souhaitez partir</h1>
-    <h2 id="pays"></h2>
-    <div class="col-md-offset-1" id="vmap" style="width: 1000px; height: 600px;"></div>
-
+    
+    <h2>
+        <strong> Département </strong> {{ app.session.get('departement') }}</br>
+    <strong>Université </strong>
+    {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
+    <small>Contrats d'études des années précèdentes</small>
+    </h2>
+    
+    <div class="col-md-12">
+        {% for contrat in contrats %}
+            <div class="well col-md-offset-1 col-md-5"><a href="{{path('_acceuil')}}">
+                <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
+                <strong>Prénom :</strong> {{contrat.prenomEleve}}<br/>
+                <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}
+            </a></div>
+        {% endfor %}
+    </div>
+    
 {% endblock %}
 
 {% block javascripts %}
