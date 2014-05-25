@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class UniversiteRepository extends EntityRepository
 {
+    public function getByPays($id)
+    {
+
+        // La construction de la requête reste inchangée
+        $query = $this->createQueryBuilder('u')
+            ->leftJoin('u.ville', 'v')
+            ->addSelect('v')
+            ->leftJoin('v.pays', 'p')
+            ->addSelect('p')
+            ->where('p.id = :id')
+            ->setParameter('id',$id)
+            ->getQuery()->getResult();
+        return $query;
+    }
+
+    
+    
 }

@@ -7,8 +7,27 @@
 {% endblock %}
 {% block body %}
 
-    <h3> Echanges Universitaires - {{pays.nom}}</h3>
- <div class="col-md-offset-1" id="vmap" name="{{pays.nom}}" style="width: 1000px; height: 600px;"></div>
+    <h2> Echange Universitaires - {{pays.nom}}</h2>
+    <div class="well col-md-6" id="vmap" name="{{pays.nom}}" style="width: 500px; height: 500px;"></div>
+        <div class="well col-md-offset-1 col-md-4">
+                    <br/>
+                    
+
+            <form class="form-inline" method="post" action="{{ path('_voirContrat', {'departement_nom': app.session.get('departement')  } ) }}">
+                <div class="center-block">
+                    <select onchange="hide()" nom="universite" class=" form-control">  
+                        <option id="to_hide" name="choisir" value="choisir">Choisissez votre université</option>
+                        {% for universite in universites %}
+                            <option  value="{{ universite.nom }}"> {{ universite.nom }} </option>
+                        {% endfor %}
+                    </select>
+                    <br/><br/>
+                    <input type="submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+            
+
   {% endblock %}
 
 {% block javascripts %}
@@ -34,7 +53,7 @@
             selectedColor: '#c9dfaf',
             selectedRegion: null,
             showTooltip: true,
-            onLabelShow: function(event, label, code)
+             onLabelShow: function(element, code, region)
             {
                 if(sample_data[code] > 0)
                     label.append(': '+sample_data[code]+' Views'); 
@@ -48,7 +67,7 @@
     </script>
     <script src="{{asset('jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.france.js')}}" type="text/javascript"></script>
-    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.germany.js')}}" type="text/javascript"></script>
+    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.allemagne.js')}}" type="text/javascript"></script>
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.algerie.js')}}" type="text/javascript"></script>
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.bresil.js')}}" type="text/javascript"></script>
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.russie.js')}}" type="text/javascript"></script>
@@ -59,7 +78,18 @@
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.australie.js')}}" type="text/javascript"></script>
     <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.chine.js')}}" type="text/javascript"></script>
 
-
+    <script type="text/javascript">
+        
+        function hide()
+        {
+            document.getElementById('to_hide').setAttribute('hidden',true);
+        }
+        
+    
+            function getSelectedCity(){
+                document.getElementById('to_hide_city').setAttribute('hidden',true);
+            }
+    </script>
 {% endblock %}
 
 
