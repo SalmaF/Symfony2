@@ -23,8 +23,7 @@ class Universite
     
     /**
      * @var integer
-     * 
-      * @ORM\Column(name="nbContrats", type="integer")
+     * @ORM\Column(name="nbContratsUniversite", type="integer")
      */
     private $nbContratsUniversite;
     

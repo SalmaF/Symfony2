@@ -14,16 +14,21 @@
                 <br/>
                 <h4>Bonne visite !!</h4>
             </div>
-        </div>    
+        </div>  
+        
         <div class="col-xs-6 col-md-6">
             <div class="well">
-                <img class="img-responsive img-thumbnail" style="width: 700px;" src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
+                <img class="img-responsive img-thumbnail" style="width: 700px; height: 1200; " src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
             </div> 
-            <div class="well">
+        </div>
+            
+            <br/>
+            
+        <div class="col-xs-12 col-md-12">
                 <form class="form-row" method="post" action="{{ path('_acceuil') }}">
-                    <div class="well">
+                    <div class="well  col-xs-6 col-md-6">
                         <p>Sélectionne ton département ...</p>
-                        <select name="departement" class="form-control col-md-6">  
+                        <select name="departement" class="form-control">  
                             {% for departement in departements %}
                                 <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
                             {% endfor %}
@@ -37,7 +42,6 @@
                     </div>#}
                 </form>
             </div>
-        </div>
     </div>
 
 {% endblock %}

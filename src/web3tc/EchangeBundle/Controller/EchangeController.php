@@ -73,9 +73,8 @@ class EchangeController extends Controller
     
     
     /**
-     * @Route("/contrat_etude/{departement_nom}", name="_contrat")
+     * @Route("/contrat_etude", name="_contrat")
      * @Template()
-    * @ParamConverter("departement", options={"mapping": {"departement_nom": "nom"}})
      */
     public function formulaireAction()
     {

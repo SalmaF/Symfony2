@@ -7,7 +7,7 @@
 {% endblock %}
 {% block body %}
 
-    <h2> Echange Universitaires - {{pays.nom}}</h2>
+    <h3> Echange Universitaires - {{pays.nom}}</h3>
     <div class="well col-md-6" id="vmap" name="{{pays.nom}}" style="width: 500px; height: 500px;"></div>
         <div class="well col-md-offset-1 col-md-4">
                     <br/>
@@ -46,18 +46,13 @@
             borderWidth: 1,
             color: '#0B3861',
             enableZoom: true,
-            hoverColor: '#DF7401',
-            hoverOpacity: 0.3,
+            hoverColor: '#FFCCFF',
+            hoverOpacity: 0.4,
             normalizeFunction: 'polynomial',
             scaleColors: ['#C8EEFF', '#006491'],
             selectedColor: '#c9dfaf',
             selectedRegion: null,
             showTooltip: true,
-             onLabelShow: function(element, code, region)
-            {
-                if(sample_data[code] > 0)
-                    label.append(': '+sample_data[code]+' Views'); 
-            },
             onRegionClick: function(element, code, region)
             {
                window.location.href="../Pays/"+code.toUpperCase();

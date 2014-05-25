@@ -9,12 +9,10 @@
 
 {% block body %}
     
-    <h2>
+    <h3>
         <strong> Département </strong> {{ app.session.get('departement') }}</br>
-    <strong>Université </strong>
-    {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
-    <small>Contrats d'études des années précèdentes</small>
-    </h2>
+        <strong>Université </strong> {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
+    </h3>
     
     <div class="col-md-12">
         {% for contrat in contrats %}
@@ -26,38 +24,6 @@
         {% endfor %}
     </div>
     
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-     <script type="text/javascript">
-         
-    jQuery(document).ready(function() {
-        jQuery('#vmap').vectorMap(
-            {
-            map: 'world_en',
-            backgroundColor: null,
-            borderColor: '#818181',
-            borderOpacity: 0.25,
-            borderWidth: 1,
-            color: '#0B3861',
-            enableZoom: true,
-            hoverColor: '#DF7401',
-            hoverOpacity: 0.3,
-            normalizeFunction: 'polynomial',
-            scaleColors: ['#C8EEFF', '#006491'],
-            selectedColor: '#c9dfaf',
-            selectedRegion: null,
-            showTooltip: true,
-            onRegionClick: function(element, code, region)
-            {
-               window.location.href="../Pays/"+code.toUpperCase();
-            }
-        });
-    });
-    </script>
-    <script src="{{asset('jqvmap/jqvmap/jquery.vmap.js')}}" type="text/javascript"></script>
-    <script src="{{asset('jqvmap/jqvmap/maps/jquery.vmap.world.js')}}" type="text/javascript"></script>
 {% endblock %}
 
 

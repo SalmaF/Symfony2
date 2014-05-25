@@ -318,4 +318,27 @@ class Pays
     {
         return $this->nomEn;
     }
+
+    /**
+     * Set nbContratsPays
+     *
+     * @param integer $nbContratsPays
+     * @return Pays
+     */
+    public function setNbContratsPays($nbContratsPays)
+    {
+        $this->nbContratsPays = $nbContratsPays;
+
+        return $this;
+    }
+
+    /**
+     * Get nbContratsPays
+     *
+     * @return integer 
+     */
+    public function getNbContratsPays()
+    {
+        return $this->nbContratsPays;
+    }
 }
