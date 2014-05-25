@@ -3,8 +3,9 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    
-    <h2> Mon contrat d'étude </h2>
+    <div class='well'>
+        <h2> Mon contrat d'étude </h2>
+    </div>
     
     <div class="jumbotron">
         <form class="form-in-line" method="post" role="form"{{ form_enctype(form) }}>
@@ -16,15 +17,18 @@
             <h3> INFORMATIONS PERSONNELLES : </h3>
             <div class="form-group col-lg-12">
                 {{ form_label(form.nomEleve, 'Nom', {'label_attr': {'class': 'col-lg-3' } } ) }}
-                {{ form_errors(form.nomEleve) }}
-                {{ form_widget(form.nomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-            </div> 
+                <div class="col-lg-4">
+                    {{ form_errors(form.nomEleve) }}
+                    {{ form_widget(form.nomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div> 
+            </div>
             
             <div class="form-group col-lg-12">
                 {{ form_label(form.prenomEleve,'Prénom', {'label_attr': {'class': 'col-lg-3' } } ) }}
-                {{ form_errors(form.prenomEleve) }}
-                {{ form_widget(form.prenomEleve) }}
-                {{ form_row(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.prenomEleve) }}
+                    {{ form_widget(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>
             </div>
                 
             <div class="form-group col-lg-12">
