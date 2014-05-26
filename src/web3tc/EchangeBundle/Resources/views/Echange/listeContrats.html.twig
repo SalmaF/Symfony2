@@ -6,13 +6,23 @@
     <div class="row">
         <div class="col-xs-6 col-md-6">
             <div class="well">
-                <h2> Présentation du Projet</h2>
+                <h2><strong>Contrat d'étude</strong></h2>
+                <h3><strong> Département </strong> - {{contrat.departement.nom}}</h3>
+                <h3><strong> Université </strong> - {{contrat.universite.nom}}</h3>
                 <br/>
-                <p>Bienvenue sur notre site WEB ami Insalien.</p>
+                <p><strong>Nom:</strong> {{contrat.NomEleve}}</p>
+                <p><strong>Prénom:</strong>  {{contrat.PrenomEleve}}</p>
+                <p><strong>Année en cours:</strong>  {{contrat.AnneeEnCours}}</p>
+                <p><strong>Durée du séjour:</strong>  {{contrat.DureeDuSejour}}</p>
                 <br/>
-                <br/>
-                
-                <h4>Bonne visite !!</h4>
+                <h4><strong>Cours</strong></h4>
+                {% for cours in cours %}
+                    <p>--</p>
+                    <p><strong>Numéro:</strong>  {{cours.numero}}</p>
+                    <p><strong>Titre:</strong>  {{cours.titre}}</p>
+                    <p><strong>Semestre:</strong>  {{cours.semestre}}</p>
+                    <p><strong>Crédit:</strong>  {{cours.credits}}</p>
+                {% endfor %}
             </div>
         </div>  
     </div>  

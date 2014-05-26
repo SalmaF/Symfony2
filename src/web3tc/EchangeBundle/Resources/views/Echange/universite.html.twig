@@ -13,7 +13,7 @@
     
     <div>
         {% for contrat in contrats %}
-            <div class="well"><a href="{{path('_liste', {'contrat_id': contrat.id } ) }}">
+            <div class="well"><a href="{{path('_liste', {'id': contrat.id } ) }}">
                 <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
                 <strong>Prénom :</strong> {{contrat.prenomEleve}}<br/>
                 <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}

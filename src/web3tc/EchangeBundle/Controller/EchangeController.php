@@ -163,11 +163,18 @@ class EchangeController extends Controller
     /**
         * @Route("/Contrat/{id}", name="_liste")
         * @Template()
+        * @ParamConverter("contratEtude", options={"mapping": {"id": "id"}})
      */
     public function listeAction(ContratEtude $contrat)
     {
+        $cours = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('web3tcEchangeBundle:Cours')
+                ->findAll();
+        
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
-            'contrat'=>$contrat
+            'contrat'=>$contrat,
+            'cours'=>$cours
             ));
         
     }
