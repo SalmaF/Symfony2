@@ -20,24 +20,30 @@
             <div class="well">
                 <img class="img-responsive img-thumbnail" style="width: 700px; height: 1200; " src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
             </div> 
+            
+            <div class="col-xs-12 col-md-12">
+                <form class="form-row" method="post" action="{{ path('_acceuil') }}">
+                    <div class="well">
+                        <p>Tu cherches des renseignements et des contrats d'études pour un pays en particulier ?</p>
+                        <h4>Sélectionne ton département ...</h4>
+                        
+                        <div style="display: inline-block;" class="col-md-6">
+                            <select name="departement" class="form-control">  
+                                {% for departement in departements %}
+                                    <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                            
+                        <input type="submit" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
         </div>
             
             <br/>
             
-        <div class="col-xs-12 col-md-12">
-                <form class="form-row" method="post" action="{{ path('_acceuil') }}">
-                    <p>Tu cherches renseignements et contrats d'études sur un pays en particulier ?</p>
-                    <p>Sélectionne ton département ...</p>
-                    <div style="display: inline-block;">
-                        <select name="departement" class="form-control">  
-                            {% for departement in departements %}
-                                <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <input type="submit" class="btn btn-primary" />
-                </form>
-            </div>
+        
     </div>
 
 {% endblock %}

@@ -114,7 +114,7 @@ class EchangeController extends Controller
                 ->getRepository('web3tcEchangeBundle:Universite')
                 ->getByPays($pays);
         
-        return $this->render('web3tcEchangeBundle:Echange:carteSpe.html.twig', array(
+        return $this->render('web3tcEchangeBundle:Echange:pays.html.twig', array(
             'pays' => $pays,
             'universites'=>$universites,
           ));
@@ -125,12 +125,12 @@ class EchangeController extends Controller
     
     
     /**
-    * @Route("/Selection/Contrat/{departement_nom}", name="_voirContrat")
+    * @Route("/Pays/Contrat/{departement_nom}", name="_universite")
     * @Template()
     * @ParamConverter("departement", options={"mapping": {"departement_nom": "nom"}})
      *
      */
-    public function contratsAction(Departement $departement)
+    public function universiteAction(Departement $departement)
     {
         
 
@@ -151,7 +151,7 @@ class EchangeController extends Controller
             
         }
         
-        return $this->render('web3tcEchangeBundle:Echange:voirContrat.html.twig', array(
+        return $this->render('web3tcEchangeBundle:Echange:universite.html.twig', array(
               'departement'=>$departement,
               'universite'=>$universite,
             'contrats'=>$contrats,
@@ -160,7 +160,18 @@ class EchangeController extends Controller
         
     }
 
-    
+    /**
+        * @Route("/Contrat/{contrat_id}", name="_liste")
+        * @Template()
+        * @ParamConverter("contratEtude", options={"mapping": {"contrat_id": "id"}})
+     */
+    public function listeAction(ContratEtude $contrat)
+    {
+        return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
+            'contrat'=>$contrat,
+            ));
+        
+    }
  
     
     

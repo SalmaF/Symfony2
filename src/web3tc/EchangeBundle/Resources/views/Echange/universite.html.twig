@@ -1,22 +1,17 @@
-{# src/web3tc/EchangeBundle/Resources/views/Echange/formulaire.html.twig #}
+{# src/web3tc/EchangeBundle/Resources/views/Echange/universite.html.twig #}
 
 {% extends "::base.html.twig" %}
-
-{% block stylesheet %}
-    {{ parent() }}
-    <link href="{{asset('jqvmap/jqvmap/jqvmap.css')}}" media="screen" rel="stylesheet" type="text/css" />
-{% endblock%}
 
 {% block body %}
     
     <h3>
         <strong> Département </strong> {{ app.session.get('departement') }}</br>
-        <strong>Université </strong> {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
+        <strong> Université </strong> {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
     </h3>
     
-    <div class="col-md-12">
+    <div class="col-xs-12 col-md-12">
         {% for contrat in contrats %}
-            <div class="well col-md-offset-1 col-md-5"><a href="{{path('_acceuil')}}">
+            <div class="well col-md-offset-1 col-md-5"><a href="{{path('_liste', {'contrat_id': contrat.id } ) }}">
                 <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
                 <strong>Prénom :</strong> {{contrat.prenomEleve}}<br/>
                 <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}
