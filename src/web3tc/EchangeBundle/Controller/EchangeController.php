@@ -170,7 +170,7 @@ class EchangeController extends Controller
         $cours = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('web3tcEchangeBundle:Cours')
-                ->findAll();
+                ->findByContrat($contrat);
         
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
             'contrat'=>$contrat,
