@@ -27,20 +27,20 @@
 
             <div class='well'>
                 <form class="form-row" method="post" action="{{ path('_acceuil') }}">
-                    <div class="well">
-                        <p>Tu cherches des renseignements et des contrats d'études pour un pays en particulier ?</p>
-                        <h4>Sélectionne ton département ...</h4>
+                    
+                    <p>Tu cherches des renseignements et des contrats d'études pour un pays en particulier ?</p>
+                    <h4>Sélectionne ton département ...</h4>
                         
-                        <div style="display: inline-block;" class="col-md-6">
-                            <select name="departement" class="form-control">  
-                                {% for departement in departements %}
-                                    <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                            
-                        <input type="submit" class="btn btn-primary" />
+                    <div style="display: inline-block;">
+                        <select name="departement" class="form-control">  
+                            {% for departement in departements %}
+                                <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
+                            {% endfor %}
+                        </select>
                     </div>
+                            
+                    <input type="submit" class="btn btn-primary" />
+                    
                 </form>
             </div>
         </div>
