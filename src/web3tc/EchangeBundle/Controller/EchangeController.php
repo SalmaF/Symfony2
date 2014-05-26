@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\Pays;
-use web3tc\EchangeBundle\Entity\Villes;
+use web3tc\EchangeBundle\Entity\Ville;
 use web3tc\EchangeBundle\Entity\ContratEtude;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -161,14 +161,13 @@ class EchangeController extends Controller
     }
 
     /**
-        * @Route("/Contrat/{contrat_id}", name="_liste")
+        * @Route("/Pays/Contrat/{id}", name="_liste")
         * @Template()
-        * @ParamConverter("contratEtude", options={"mapping": {"contrat_id": "id"}})
      */
     public function listeAction(ContratEtude $contrat)
     {
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
-            'contrat'=>$contrat,
+            'contrat'=>$contrat
             ));
         
     }
