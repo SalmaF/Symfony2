@@ -8,26 +8,37 @@
 {% endblock %}
 
 {% block body %}
-    <h3> Echange Universitaires - {{pays.nom}}</h3>
-    <div class="well col-md-6" id="vmap" name="{{pays.nom}}" style="width: 500px; height: 500px;"></div>
-        <div class="well col-md-offset-1 col-md-4">
-                    <br/>
-                    
-
-            <form class="form-inline" method="post" action="{{ path('_universite', {'departement_nom': app.session.get('departement')  } ) }}">
-                <div class="center-block">
-                    <select onchange="hide()" name="universite" class=" form-control">  
-                        <option id="to_hide" name="choisir" value="choisir">Choisissez votre université</option>
-                        {% for universite in universites %}
-                            <option  value="{{ universite.nom }}"> {{ universite.nom }} ({{universite.nbContratsUniversite }} contrats) </option>
-                        {% endfor %}
-                    </select>
-                    <br/><br/>
-                    <input type="submit" class="btn btn-primary" />
-                </div>
-            </form>
+    
+    <div class="well">
+        <h3>Echanges Universitaires - {{pays.nom}}</h3>
+    </div>
+    
+    <div class ="row">
+        
+        <div class="col-xs-6 col-md-6">
+            <div class="well" id="vmap" name="{{pays.nom}}" style="height: 400px;"></div>
         </div>
-            
+
+        <div class="col-xs-6 col-md-6">
+            <div class="well">
+                 <form class="form-inline" method="post" action="{{ path('_universite', {'departement_nom': app.session.get('departement')  } ) }}">
+                    <div style="display: inline-block">
+                        <select onchange="hide()" name="universite" class=" form-control">  
+                            <option id="to_hide" name="choisir" value="choisir">Choisissez votre université</option>
+                            {% for universite in universites %}
+                                <option  value="{{ universite.nom }}"> {{ universite.nom }} ({{universite.nbContratsUniversite }} contrats) </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-primary" />
+                </form>
+            </div>
+        
+            <div class="well">
+                <h3>{{pays.nom}}</h3>
+                <p>{{pays.presentation}}</p>
+            </div>
+        </div>        
 
   {% endblock %}
 
@@ -46,18 +57,14 @@
             borderOpacity: 0.25,
             borderWidth: 1,
             color: '#0B3861',
-            enableZoom: true,
+            enableZoom: false,
             hoverColor: '#FFCCFF',
             hoverOpacity: 0.4,
             normalizeFunction: 'polynomial',
             scaleColors: ['#C8EEFF', '#006491'],
-            selectedColor: '#c9dfaf',
             selectedRegion: null,
-            showTooltip: true,
-            onRegionClick: function(element, code, region)
-            {
-               window.location.href="../Pays/"+code.toUpperCase();
-            }
+            showTooltip: false,
+            
         });
     });
     </script>
