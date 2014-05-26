@@ -137,7 +137,7 @@ class EchangeController extends Controller
         
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {            
-            //On arrive initialement sur la page avec une requete detype POST
+            //On arrive initialement sur la page avec une requete de type POST
             $nomUniv = $request->request->get('universite');
             $universite = $this->getDoctrine()
                         ->getManager()
@@ -161,14 +161,13 @@ class EchangeController extends Controller
     }
 
     /**
-        * @Route("/Contrat/{contrat_id}", name="_liste")
+        * @Route("/Contrat/{id}", name="_liste")
         * @Template()
-        * @ParamConverter("contratEtude", options={"mapping": {"contrat_id": "id"}})
      */
     public function listeAction(ContratEtude $contrat)
     {
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
-            'contrat'=>$contrat,
+            'contrat'=>$contrat
             ));
         
     }
