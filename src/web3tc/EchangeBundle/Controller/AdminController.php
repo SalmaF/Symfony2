@@ -32,4 +32,12 @@ class AdminController extends Controller
     {
     }
 
+    /**
+     * @Route("/contrat")
+     * @Template()
+     */
+    public function listeAction()
+    {
+    }
+    
 }

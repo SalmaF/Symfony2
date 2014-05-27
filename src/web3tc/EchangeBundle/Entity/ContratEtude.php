@@ -4,7 +4,7 @@ namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 //use web3tc\EchangeBundle\Entity\Universite;
-//use web3tc\EchangeBundle\Entity\Cours;
+use web3tc\EchangeBundle\Entity\Cours;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -213,7 +213,7 @@ class ContratEtude
      * @param \web3tc\EchangeBundle\Entity\Universite $universite
      * @return ContratEtude
      */
-    public function setUniversite(Universite $universite = null)
+    public function setUniversite(Universite $universite)
     {
         $this->universite = $universite;
 

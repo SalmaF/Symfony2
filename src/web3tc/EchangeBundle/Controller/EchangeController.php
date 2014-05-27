@@ -137,7 +137,7 @@ class EchangeController extends Controller
         
         $request = $this->get('request');
         if ($request->getMethod() == 'POST') {            
-            //On arrive initialement sur la page avec une requete detype POST
+            //On arrive initialement sur la page avec une requete de type POST
             $nomUniv = $request->request->get('universite');
             $universite = $this->getDoctrine()
                         ->getManager()
@@ -161,8 +161,9 @@ class EchangeController extends Controller
     }
 
     /**
-        * @Route("/Pays/Contrat/{id}", name="_liste")
+        * @Route("/Contrat/{id}", name="_liste")
         * @Template()
+        * @ParamConverter("contratEtude", options={"mapping": {"id": "id"}})
      */
     public function listeAction(ContratEtude $contrat)
     {

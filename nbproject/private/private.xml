@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/Departement.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Form/CoursType.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/ContratEtude.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Form/UniversiteType.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/UniversiteRepository.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/Cours.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/formulaire.html.twig</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/universite.html.twig</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/Universite.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/carte.html.twig</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/pays.html.twig</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Controller/EchangeController.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Entity/Pays.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Form/ContratEtudeType.php</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/index.html.twig</file>
+            <file>file:/C:/wamp/www/Symfony2/src/web3tc/EchangeBundle/Resources/views/Echange/listeContrats.html.twig</file>
+        </group>
     </open-files>
 </project-private>
