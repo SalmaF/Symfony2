@@ -38,7 +38,7 @@ class ContratEtude
     private $universite;
     
     /**
-     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Cours")
+     * @Assert\Type(type="Cours")
      * @ORM\ManyToMany(targetEntity="Cours")
      * @ORM\JoinColumn(nullable=true)
      */
@@ -78,7 +78,7 @@ class ContratEtude
      */
     public function __construct()
     {
-        $this->cours = new \Doctrine\Common\Collections\ArrayCollection();
+        //$this->cours = new \Doctrine\Common\Collections\ArrayCollection();
         
     }
     

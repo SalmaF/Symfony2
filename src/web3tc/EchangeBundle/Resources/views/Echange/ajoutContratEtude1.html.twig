@@ -14,8 +14,11 @@
        </div>
        
         <form class="form-in-line" method="post" role="form" {{ form_enctype(form) }}>
+ {{ form_errors(form) }}
  
 {{ form_rest(form) }}
+ Si votre université ne figure pas dans la liste cliquez sur le lien suivant : 
+ <a href="{{path('_ajoutUniversite')}}">Ajouter université</a><br/><br/>
 
         <input type="submit" class="btn btn-primary" />
         </form>

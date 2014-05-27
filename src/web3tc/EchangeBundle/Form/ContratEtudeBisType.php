@@ -28,9 +28,7 @@ class ContratEtudeBisType extends AbstractType
             ->add('universite','entity', array('class' => 'web3tcEchangeBundle:Universite',
                                                  'property' => 'nom',
                                                  'multiple' => false,
-                                                'required'    => false,
-                                                'empty_value' => 'Si l\'unversite n\'est pas dans la liste, séléctionnez cette option',)
-            )
+            ))
 
         ;
     }

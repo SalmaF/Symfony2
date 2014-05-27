@@ -21,4 +21,13 @@
         <input type="submit" class="btn btn-primary" />
         </form>
    </div>
+
+<div class="well">
+{#    
+{% for cours in contrat.cours %}
+        {{cours.titre}}
+    {% endfor %}
         {% endblock %}
+
+            #}
+</div>
