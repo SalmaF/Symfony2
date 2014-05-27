@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ContratEtudeType extends AbstractType
+class ContratEtudeBisType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -25,8 +25,10 @@ class ContratEtudeType extends AbstractType
             ->add('departement', 'entity', array('class' => 'web3tcEchangeBundle:Departement',
                                                  'property' => 'nom',
                                                  'multiple' => false))
-            ->add('universite',new UniversiteType())
-            ->add('cours', new CoursType())
+            ->add('universite','entity', array('class' => 'web3tcEchangeBundle:Universite',
+                                                 'property' => 'nom',
+                                                 'multiple' => false,
+            ))
 
         ;
     }

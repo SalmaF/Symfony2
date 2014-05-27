@@ -1,0 +1,25 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}web3tcEchangeBundle:Admin:pays{% endblock %}
+
+{% block body %}
+
+                
+   <div class="jumbotron">
+        <h1>Page Administration</h1>
+
+        {% for key, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="alert alert-{{ key }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <a href="{{path('_ajoutPays')}}" class="btn btn-default" >Ajouter un pays </a>
+        <a href="{{path('_ajoutVille')}}" class="btn btn-default" >Ajouter une ville </a>
+        <a href="{{path('_ajoutDepartement')}}" class="btn btn-default" >Ajouter un depatement </a>
+        <a href="{{path('_ajoutUniversite')}}" class="btn btn-default" >Ajouter une universite </a>
+
+   </div>
+        {% endblock %}

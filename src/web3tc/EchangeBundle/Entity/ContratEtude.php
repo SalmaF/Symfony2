@@ -3,7 +3,7 @@
 namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-//use web3tc\EchangeBundle\Entity\Universite;
+use web3tc\EchangeBundle\Entity\Universite;
 use web3tc\EchangeBundle\Entity\Cours;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -38,9 +38,9 @@ class ContratEtude
     private $universite;
     
     /**
-     * @Assert\Type(type="web3tc\EchangeBundle\Entity\Cours")
+     * @Assert\Type(type="Cours")
      * @ORM\ManyToMany(targetEntity="Cours")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $cours;
     
@@ -78,7 +78,7 @@ class ContratEtude
      */
     public function __construct()
     {
-        $this->cours = new \Doctrine\Common\Collections\ArrayCollection();
+        //$this->cours = new \Doctrine\Common\Collections\ArrayCollection();
         
     }
     
@@ -213,7 +213,7 @@ class ContratEtude
      * @param \web3tc\EchangeBundle\Entity\Universite $universite
      * @return ContratEtude
      */
-    public function setUniversite(Universite $universite = null)
+    public function setUniversite(Universite $universite)
     {
         $this->universite = $universite;
 
@@ -292,4 +292,41 @@ class ContratEtude
     {
         $this->cours->removeElement($cours);
     }
+    
+    
+     /**
+     * @ORM\PrePersist
+     */
+    public function increase()
+    {
+      $nbContrats=$this->getUniversite->getNbContratsUniversite();
+      $this->getUniversite()->setNbContratsUniversite($nbContrats+1);
+      
+      $nbContrats=$this->getUniversite->getVille->getNbContratsVille();
+      $this->getUniversite()->getVille->setNbContratsVille($nbContrats+1);
+      
+      $nbContrats=$this->getUniversite->getVille->getPays->getNbContratsPays();
+      $this->getUniversite()->getVille->getPays->setNbContratsPays($nbContrats+1);
+      
+      
+    }
+  
+    /**
+     * @ORM\PreRemove
+     */
+    public function decrease()
+    {
+      $nbContrats=$this->getUniversite->getNbContratsUniversite();
+      $this->getUniversite()->setNbContratsUniversite($nbContrats-1);
+      
+      $nbContrats=$this->getUniversite->getVille->getNbContratsVille();
+      $this->getUniversite()->getVille->setNbContratsVille($nbContrats-1);
+      
+      $nbContrats=$this->getUniversite->getVille->getPays->getNbContratsPays();
+      $this->getUniversite()->getVille->getPays->setNbContratsPays($nbContrats-1);
+      
+      }
+    
+    
+    
 }

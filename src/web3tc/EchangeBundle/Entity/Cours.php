@@ -5,7 +5,7 @@ namespace web3tc\EchangeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use web3tc\EchangeBundle\Entity\ContratEtude;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Cours
  *
