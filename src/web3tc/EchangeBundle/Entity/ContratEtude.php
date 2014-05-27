@@ -213,7 +213,7 @@ class ContratEtude
      * @param \web3tc\EchangeBundle\Entity\Universite $universite
      * @return ContratEtude
      */
-    public function setUniversite(Universite $universite = null)
+    public function setUniversite(Universite $universite)
     {
         $this->universite = $universite;
 

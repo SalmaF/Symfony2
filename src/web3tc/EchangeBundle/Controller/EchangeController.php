@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\Pays;
-use web3tc\EchangeBundle\Entity\Villes;
+use web3tc\EchangeBundle\Entity\Ville;
 use web3tc\EchangeBundle\Entity\ContratEtude;
 use web3tc\EchangeBundle\Entity\Universite;
 use web3tc\EchangeBundle\Entity\Cours;
