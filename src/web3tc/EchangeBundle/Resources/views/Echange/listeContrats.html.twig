@@ -15,11 +15,26 @@
                 <p><strong>Nom:</strong> {{contrat.NomEleve}}</p>
                 <p><strong>Prénom:</strong>  {{contrat.PrenomEleve}}</p>
                 <p><strong>Année en cours:</strong>  {{contrat.AnneeEnCours}}</p>
-                <p><strong>Durée du séjour:</strong>  {{contrat.DureeDuSejour}}</p>
+                <p><strong>Durée de l'échange:</strong>  {{contrat.DureeDuSejour}}</p>
                 <br/>
-                <h4><strong>Cours</strong></h4>
-                {% for cours in courss %}
-                    <p>--</p>
+                <h4><strong>Cours suivis</strong></h4>
+
+<table class="table table-striped">
+        <tr>
+            <th>Numéro</th><th>Cours</th><th>Semestre(s)</th><th>Crédits</th>
+        </tr>
+        {% for cours in contrat.cours %}
+            <tr>
+                <td>{{cours.numero}}</td>
+                <td>{{cours.titre}}</td>
+                <td>{{cours.semestre}}</td>
+                <td>{{cours.credits}}</td>                
+            </tr>
+    {% endfor %}
+    </table>
+    
+                {% for cours in contrat.cours %}
+
                     <p><strong>Numéro:</strong>  {{cours.numero}}</p>
                     <p><strong>Titre:</strong>  {{cours.titre}}</p>
                     <p><strong>Semestre:</strong>  {{cours.semestre}}</p>

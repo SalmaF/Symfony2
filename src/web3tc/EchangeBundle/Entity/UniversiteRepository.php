@@ -15,7 +15,7 @@ class UniversiteRepository extends EntityRepository
     public function getByPays($id)
     {
         // La construction de la requête reste inchangée
-        $query = $this->createQueryBuilder('universite')
+        $query = $this->createQueryBuilder('u')
             ->leftJoin('u.ville', 'v')
             ->addSelect('v')
             ->leftJoin('v.pays', 'p')

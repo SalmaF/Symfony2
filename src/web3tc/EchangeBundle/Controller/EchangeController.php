@@ -122,8 +122,8 @@ class EchangeController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contratEtude);
                 $em->merge($contratEtude->getUniversite());
-                $em->merge($contratEtude->getVille());
-                $em->merge($contratEtude->getPays());
+                $em->merge($contratEtude->getUniversite()->getVille());
+                $em->merge($contratEtude->getUniversite()->getVille()->getPays());
                 $em->flush(); 
                 
                 return $this->redirect($this-> generateUrl('_ajoutcontratDeux',
@@ -243,14 +243,14 @@ class EchangeController extends Controller
      */
     public function listeAction(ContratEtude $contrat)
     {
-        $courss = $this->getDoctrine()
+        /*$courss = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('web3tcEchangeBundle:Cours')
                 ->getByCours($contrat);
-        
+        */
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
             'contrat'=>$contrat,
-            'courss'=>$courss,
+            //'courss'=>$courss,
             ));
         
     }
