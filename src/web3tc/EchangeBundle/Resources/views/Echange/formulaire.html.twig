@@ -99,8 +99,6 @@
             {#</div>#}
             
             <br/>
-<<<<<<< HEAD
-            
             <h3> INFORMATIONS CURSUS : </h3>
             <div class="cours form-horizontal col-lg-12">
                 <p>Insérer votre liste de cours </p>
@@ -156,58 +154,4 @@
         </form>
     </div>
 
-<<<<<<< HEAD
-=======
-    <script type="text/javascript">
-        $(document).ready(function() {
-            var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
-
-            var $lienAjout = $('<a href="#" id="ajout_cours" class="btn">Ajouter un cours</a>');
-            $container.append($lienAjout);
-
-            $lienAjout.click(function(e) {
-                ajouterCours($container);
-                e.preventDefault();
-                return false;
-            });
-
-            var index = $container.find(':input').length;
-
-            if (index == 0) {
-                ajouterCours($container);
-            } else {
-                $container.children('div').each(function() {
-                    ajouterLienSuppression($(this));
-                });
-            }
-
-            function ajouterCours($container) {
-                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Cours n°' + (index+1))
-                                                                    .replace(/__name__/g, index));
-
-                ajouterLienSuppression($prototype);
-                $container.append($prototype);
-                index++;
-            }
-
-            function ajouterLienSuppression($prototype) {
-                $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
-
-                $prototype.append($lienSuppression);
-
-                $lienSuppression.click(function(e) {
-                    $prototype.remove();
-                    e.preventDefault();
-                    return false;
-                });
-            }
-        });
-
-            $lienSuppression.click(function(e) {
-                $prototype.remove();
-                e.preventDefault();
-                return false;
-            });
-    </script>
->>>>>>> 1ceecd52722d6c899744ef1ea4c112960b4a3359
 {% endblock %}

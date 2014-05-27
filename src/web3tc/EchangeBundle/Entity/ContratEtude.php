@@ -39,7 +39,7 @@ class ContratEtude
     
     /**
      * @Assert\Type(type="Cours")
-     * @ORM\ManyToMany(targetEntity="Cours")
+     * @ORM\ManyToMany(targetEntity="Cours", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $cours;
