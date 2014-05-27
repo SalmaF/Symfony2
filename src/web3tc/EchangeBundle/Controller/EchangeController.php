@@ -126,7 +126,7 @@ class EchangeController extends Controller
                 $em->merge($contratEtude->getPays());
                 $em->flush(); 
                 
-                return $this->redirect($this->generateUrl('_ajoutcontratDeux',
+                return $this->redirect($this-> generateUrl('_ajoutcontratDeux',
                         array ( 'contrat_id'=> $contratEtude->getId()))) ;
             }
         }
@@ -156,8 +156,10 @@ class EchangeController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+               
                 $contratEtude->addCours($cours);
                 $em->persist($cours);
+                
                 $em->merge($contratEtude);
 
                 $em->flush();     
@@ -169,6 +171,7 @@ class EchangeController extends Controller
         }
         return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude2.html.twig', array(
             'form' => $form->createView(),
+            'contratEtude'=>$contratEtude,
           ));
     }
     
@@ -190,7 +193,7 @@ class EchangeController extends Controller
         
         return $this->render('web3tcEchangeBundle:Echange:pays.html.twig', array(
             'pays' => $pays,
-            'universites'=>$universites,
+            'universites'=>$universites
           ));
         
 
@@ -240,14 +243,14 @@ class EchangeController extends Controller
      */
     public function listeAction(ContratEtude $contrat)
     {
-        $cours = $this->getDoctrine()
+        $courss = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('web3tcEchangeBundle:Cours')
-                ->findByContrat($contrat);
+                ->getByCours($contrat);
         
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
             'contrat'=>$contrat,
-            'cours'=>$cours
+            'courss'=>$courss,
             ));
         
     }

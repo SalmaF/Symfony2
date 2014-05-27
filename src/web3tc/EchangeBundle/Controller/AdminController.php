@@ -54,10 +54,6 @@ class AdminController extends Controller
                     //Ajout d'un message FlashBag : Message stocké dans la session qui n'est affiché
                 //qui disparait une fois affiché (disparait au rechargement F5 de la page)
                 
-                $this->get('session')->getFlashBag()->add(
-                'notice',
-                'Your changes were saved!'
-                );                // On redirige vers la page de visualisation de l'article nouvellement créé
                 return $this->redirect($this->generateUrl('_adminAccueil'));
                
 

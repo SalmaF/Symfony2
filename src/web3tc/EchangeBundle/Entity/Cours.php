@@ -3,6 +3,7 @@
 namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 use web3tc\EchangeBundle\Entity\ContratEtude;
 use Symfony\Component\Validator\Constraints as Assert;
 /**
@@ -53,7 +54,7 @@ class Cours
     /**
      * @Assert\Type(type="web3tc\EchangeBundle\Entity\ContratEtude")
      * @ORM\ManyToMany(targetEntity="ContratEtude")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $contratEtude;    
 
@@ -158,5 +159,28 @@ class Cours
     public function getCredits()
     {
         return $this->credits;
+    }
+    
+    /**
+    * Set contratEtude
+    *
+    * @param \web3tc\EchangeBundle\Entity\ContratEtude $contratEtude
+    * @return ContratEtude
+    */
+    public function setContratEtude(ContratEtude $contratEtude = null)
+    {
+        $this->contratEtude = $contratEtude;
+
+        return $this;
+    }
+    
+     /**
+     * Get contratEtude
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContratEtude()
+    {
+        return $this->contratEtude;
     }
 }

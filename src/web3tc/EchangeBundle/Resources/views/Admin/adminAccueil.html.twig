@@ -7,7 +7,7 @@
                 
    <div class="jumbotron">
         <h1>Page Administration</h1>
-
+        {# Message qui se met dans la variable de session et qui est supprimé dès qu'il est affiché sur une page #}
         {% for key, messages in app.session.flashbag.all() %}
             {% for message in messages %}
                 <div class="alert alert-{{ key }}">

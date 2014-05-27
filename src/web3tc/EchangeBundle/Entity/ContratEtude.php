@@ -230,6 +230,13 @@ class ContratEtude
         return $this->universite;
     }
 
+     /**
+     * Set cours
+     *
+     * @param \web3tc\EchangeBundle\Entity\Cours $cours
+     * @return ContratEtude
+     */
+    
      public function setCours(Cours $cours = null)
     {
         $this->cours = $cours;
