@@ -13,6 +13,7 @@ use web3tc\EchangeBundle\Entity\ContratEtude;
 use web3tc\EchangeBundle\Entity\Universite;
 use web3tc\EchangeBundle\Entity\Cours;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
+use web3tc\EchangeBundle\Form\ContratEtudeBisType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class EchangeController extends Controller
@@ -74,6 +75,7 @@ class EchangeController extends Controller
 
     
     
+    
     /**
      * @Route("/contrat_etude/", name="_contrat")
      * @Template()
@@ -91,7 +93,7 @@ class EchangeController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contratEtude);
                 $em->flush();                
-                return $this->redirect($this->generateUrl('_accueil'));
+                return $this->redirect($this->generateUrl('_contrat_etude2'));
             }
         }
         
@@ -102,6 +104,102 @@ class EchangeController extends Controller
 
     }
 
+    /**
+     * @Route("/ajout_contrat/", name="_ajout_contrat_1")
+     * @Template()
+     */
+    public function AjoutContrat1Action()
+    {
+        $contratEtude = new ContratEtude();
+
+        $form = $this->createForm(new ContratEtudeBisType, $contratEtude);
+                    
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contratEtude);
+                $em->flush(); 
+                
+                if($contratEtude->getUniversite())
+                {
+                    return $this->redirect($this->generateUrl('_ajout_contrat_3', array ( 'contrat_id', $contrat->getId() ) ) );
+                }
+                else
+                {
+                    return $this->redirect($this->generateUrl('_ajout_contrat_2', array ( 'contrat_id', $contrat->getId()))) ;
+                }
+            }
+        }
+        
+                return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude1.html.twig', array(
+            'form' => $form->createView(),
+          ));
+    }
+        
+        
+    
+        
+    /*
+     * @Route("/ajout_contrat2/{contrat_id}", name="_ajout_contrat_2")
+     * @Template()
+     * @ParamConverter("contratEtude", options={"mapping": {"contratEtude": "id"}})
+     */
+    public function AjoutContrat2Action(ContratEtude $contrat)
+    {
+        $universite = new Universite();
+
+        $form = $this->createForm(new UniversiteType, $universite);
+                    
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $contrat->setUniversite($universite);
+                $em->persist($universite);
+                $em->merge($contrat);
+                $em->flush();                
+                return $this->redirect($this->generateUrl('_ajout_contrat_3', array ( 'contrat_id', $contrat->getId() ) ));
+            }
+        }
+        return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude2.html.twig', array(
+            'form' => $form->createView(),
+          ));
+    }
+    
+    
+    /*
+     * @Route("/ajout_contrat2/{contrat_id}", name="_ajout_contrat_2")
+     * @Template()
+     * @ParamConverter("contratEtude", options={"mapping": {"contratEtude": "id"}})
+     */
+    public function AjoutContrat3Action(ContratEtude $contrat)
+    {
+        $cours = new Cours();
+
+        $form = $this->createForm(new CoursType, $cours);
+                    
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $contrat->addCours($cours);
+                $em->persist($cours);
+                $em->merge($contrat);
+
+                $em->flush();                
+                return $this->redirect($this->generateUrl('_ajout_contrat_3'));
+            }
+        }
+        return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude3.html.twig', array(
+            'form' => $form->createView(),
+          ));
+    }
+    
+    
     
     /**
      * @Route("/Pays/{pays_code}", name="_pays")
