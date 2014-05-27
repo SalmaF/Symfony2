@@ -123,7 +123,7 @@ class EchangeController extends Controller
                 $em->persist($contratEtude);
                 $em->flush(); 
                 
-                return $this->redirect($this->generateUrl('_ajoutcontratDeux',
+                return $this->redirect($this-> generateUrl('_ajoutcontratDeux',
                         array ( 'contrat_id'=> $contratEtude->getId()))) ;
             }
         }
@@ -153,8 +153,10 @@ class EchangeController extends Controller
             $form->bind($request);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
+               
                 $contratEtude->addCours($cours);
                 $em->persist($cours);
+                
                 $em->merge($contratEtude);
 
                 $em->flush();     
@@ -166,6 +168,7 @@ class EchangeController extends Controller
         }
         return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude2.html.twig', array(
             'form' => $form->createView(),
+            'contratEtude'=>$contratEtude,
           ));
     }
     
