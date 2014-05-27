@@ -190,7 +190,7 @@ class EchangeController extends Controller
         
         return $this->render('web3tcEchangeBundle:Echange:pays.html.twig', array(
             'pays' => $pays,
-            'universites'=>$universites,
+            'universites'=>$universites
           ));
         
 
