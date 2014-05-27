@@ -168,7 +168,7 @@ class EchangeController extends Controller
         }
         return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude2.html.twig', array(
             'form' => $form->createView(),
-            'contratEtude'=>$contratEtude,
+            'contrat'=>$contratEtude,
           ));
     }
     
