@@ -10,6 +10,8 @@ use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\Pays;
 use web3tc\EchangeBundle\Entity\Villes;
 use web3tc\EchangeBundle\Entity\ContratEtude;
+use web3tc\EchangeBundle\Entity\Universite;
+use web3tc\EchangeBundle\Entity\Cours;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -73,9 +75,8 @@ class EchangeController extends Controller
     
     
     /**
-     * @Route("/contrat_etude/{departement_nom}", name="_contrat")
+     * @Route("/contrat_etude/", name="_contrat")
      * @Template()
-    * @ParamConverter("departement", options={"mapping": {"departement_nom": "nom"}})
      */
     public function formulaireAction()
     {
@@ -90,7 +91,7 @@ class EchangeController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contratEtude);
                 $em->flush();                
-                return $this->redirect($this->generateUrl('_contrat'));
+                return $this->redirect($this->generateUrl('_accueil'));
             }
         }
         
@@ -156,7 +157,6 @@ class EchangeController extends Controller
               'departement'=>$departement,
               'universite'=>$universite,
             'contrats'=>$contrats,
-            'nomUniv'=>$nomUniv
               ));
         
     }

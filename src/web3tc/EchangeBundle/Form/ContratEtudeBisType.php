@@ -25,7 +25,9 @@ class ContratEtudeType extends AbstractType
             ->add('departement', 'entity', array('class' => 'web3tcEchangeBundle:Departement',
                                                  'property' => 'nom',
                                                  'multiple' => false))
-            ->add('universite',new UniversiteType())
+            ->add('universite','entity', array('class' => 'web3tcEchangeBundle:Unviersite',
+                                                 'property' => 'nom',
+                                                 'multiple' => false)
             ->add('cours', new CoursType())
 
         ;

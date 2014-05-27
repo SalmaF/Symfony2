@@ -9,14 +9,17 @@
 
 {% block body %}
     
-    <h2>
+    <h2 style="color : white">
         <strong> Département </strong> {{ app.session.get('departement') }}</br>
     <strong>Université </strong>
     {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
-    <small>Contrats d'études des années précèdentes</small>
+    <h3 style="color : white">Contrats d'études des années précèdentes</h3>
     </h2>
     
     <div class="col-md-12">
+        
+        {% if contrats %}
+            
         {% for contrat in contrats %}
             <div class="well col-md-offset-1 col-md-5"><a href="{{path('_acceuil')}}">
                 <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
@@ -24,6 +27,9 @@
                 <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}
             </a></div>
         {% endfor %}
+        {% else %}
+            <div class="well"> Pas de contrats dans cette université partenaire à ce jour</div>
+        {% endif %}
     </div>
     
 {% endblock %}

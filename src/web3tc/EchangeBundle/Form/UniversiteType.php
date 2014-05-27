@@ -16,13 +16,14 @@ class UniversiteType extends AbstractType
     {
         $builder
             ->add('nom', 'text', array('attr' => array( 'class' => 'control-label' )))
+            ->add('presentation', 'textarea', array('attr' => array( 'class' => 'control-label' )))
             ->add('ville', 'entity', array('class' => 'web3tcEchangeBundle:Ville',
                                                  'property' => 'nom',
                                                  'multiple' => false))
-            ->add('pays', 'entity', array('class' => 'web3tcEchangeBundle:Pays',
+/*            ->add('pays', 'entity', array('class' => 'web3tcEchangeBundle:Pays',
                                                  'property' => 'nom',
                                                  'multiple' => false))
-        ;
+*/        ;
     }
     
     /**
@@ -31,7 +32,7 @@ class UniversiteType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => NULL
+            'data_class' => 'web3tc\EchangeBundle\Entity\Universite'
         ));
     }
 

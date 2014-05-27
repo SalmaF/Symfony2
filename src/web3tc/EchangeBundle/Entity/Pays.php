@@ -81,7 +81,7 @@ class Pays
 
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function increase()
     {
@@ -90,7 +90,7 @@ class Pays
     }
   
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     public function decrease()
     {
@@ -317,5 +317,28 @@ class Pays
     public function getNomEn()
     {
         return $this->nomEn;
+    }
+
+    /**
+     * Set nbContratsPays
+     *
+     * @param integer $nbContratsPays
+     * @return Pays
+     */
+    public function setNbContratsPays($nbContratsPays)
+    {
+        $this->nbContratsPays = $nbContratsPays;
+
+        return $this;
+    }
+
+    /**
+     * Get nbContratsPays
+     *
+     * @return integer 
+     */
+    public function getNbContratsPays()
+    {
+        return $this->nbContratsPays;
     }
 }
