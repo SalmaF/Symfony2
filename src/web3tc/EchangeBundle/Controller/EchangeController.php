@@ -121,6 +121,9 @@ class EchangeController extends Controller
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contratEtude);
+                $em->merge($contratEtude->getUniversite());
+                $em->merge($contratEtude->getVille());
+                $em->merge($contratEtude->getPays());
                 $em->flush(); 
                 
                 return $this->redirect($this->generateUrl('_ajoutcontratDeux',
