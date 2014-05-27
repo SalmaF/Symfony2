@@ -55,8 +55,6 @@ class AdminController extends Controller
                 //qui disparait une fois affiché (disparait au rechargement F5 de la page)
                 
                 return $this->redirect($this->generateUrl('_adminAccueil'));
-               
-
             }
         }
         return $this->render('web3tcEchangeBundle:Admin:ajoutPays.html.twig', array(

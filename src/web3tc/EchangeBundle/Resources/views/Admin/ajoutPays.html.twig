@@ -1,6 +1,8 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}web3tcEchangeBundle:Admin:pays{% endblock %}
+{% block title %}
+    web3tcEchangeBundle:Admin:pays
+{% endblock %}
 
 {% block body %}
     
@@ -10,6 +12,27 @@
 
    <div class="jumbotron">
         <form class="form-in-line" method="post" role="form" {{ form_enctype(form) }}>
+            <div class="form-group col-lg-12">
+                {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'col-lg-3' } } ) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.nom) }}
+                    {{ form_widget(form.nom, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div> 
+            </div>
+            <div class="form-group col-lg-12">
+                {{ form_label(form.code, 'Code', {'label_attr': {'class': 'col-lg-3' } } ) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.code) }}
+                    {{ form_widget(form.code, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div> 
+            </div>
+            <div class="form-group col-lg-12">
+                {{ form_label(form.presentation, 'Présentation', {'label_attr': {'class': 'col-lg-3' } } ) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.presentation) }}
+                    {{ form_widget(form.presentation, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div> 
+            </div>
             {{ form_rest(form) }}
             <input type="submit" class="btn btn-primary" />
         </form>

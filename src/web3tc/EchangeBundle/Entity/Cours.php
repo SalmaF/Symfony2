@@ -53,7 +53,7 @@ class Cours
     
     /**
      * @Assert\Type(type="web3tc\EchangeBundle\Entity\ContratEtude")
-     * @ORM\ManyToMany(targetEntity="ContratEtude")
+     * @ORM\ManyToMany(targetEntity="ContratEtude", cascade={"persist"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $contratEtude;    

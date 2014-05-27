@@ -16,7 +16,7 @@ class UniversiteRepository extends EntityRepository
     {
         // La construction de la requête reste inchangée
         $query = $this->createQueryBuilder('universite')
-            ->leftJoin('u.ville', 'v')
+            ->leftJoin('universite.ville', 'v')
             ->addSelect('v')
             ->leftJoin('v.pays', 'p')
             ->addSelect('p')
