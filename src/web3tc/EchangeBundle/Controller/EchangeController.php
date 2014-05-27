@@ -10,7 +10,11 @@ use web3tc\EchangeBundle\Entity\Departement;
 use web3tc\EchangeBundle\Entity\Pays;
 use web3tc\EchangeBundle\Entity\Ville;
 use web3tc\EchangeBundle\Entity\ContratEtude;
+use web3tc\EchangeBundle\Entity\Universite;
+use web3tc\EchangeBundle\Entity\Cours;
 use web3tc\EchangeBundle\Form\ContratEtudeType;
+use web3tc\EchangeBundle\Form\ContratEtudeBisType;
+use web3tc\EchangeBundle\Form\CoursType;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class EchangeController extends Controller
@@ -72,8 +76,9 @@ class EchangeController extends Controller
 
     
     
+    
     /**
-     * @Route("/contrat_etude", name="_contrat")
+     * @Route("/contrat_etude/", name="_contrat")
      * @Template()
      */
     public function formulaireAction()
@@ -89,7 +94,7 @@ class EchangeController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contratEtude);
                 $em->flush();                
-                return $this->redirect($this->generateUrl('_contrat'));
+                return $this->redirect($this->generateUrl('_accueil'));
             }
         }
         
@@ -100,6 +105,72 @@ class EchangeController extends Controller
 
     }
 
+    /**
+     * @Route("/ajout_contrat/", name="_ajoutcontratUn")
+     * @Template()
+     */
+    public function AjoutContrat1Action()
+    {
+        $contratEtude = new ContratEtude();
+
+        $form = $this->createForm(new ContratEtudeBisType, $contratEtude);
+                    
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contratEtude);
+                $em->flush(); 
+                
+                return $this->redirect($this->generateUrl('_ajoutcontratDeux',
+                        array ( 'contrat_id'=> $contratEtude->getId()))) ;
+            }
+        }
+        
+                return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude1.html.twig', array(
+            'form' => $form->createView(),
+          ));
+    }
+
+        
+        
+    
+        
+    /**
+     * @Route("/ajout_contrat2/{contrat_id}", name="_ajoutcontratDeux")
+     * @Template()
+     * @ParamConverter("contratEtude", options={"mapping": {"contrat_id": "id"}})
+     */
+    public function AjoutContrat2Action(ContratEtude $contratEtude)
+    {
+        $cours = new Cours();
+
+        $form = $this->createForm(new CoursType, $cours);
+                    
+        $request = $this->get('request');
+        if ($request->getMethod() == 'POST') {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $contratEtude->addCours($cours);
+                $em->persist($cours);
+                $em->merge($contratEtude);
+
+                $em->flush();     
+                return $this->redirect($this->generateUrl('_ajoutcontratDeux',
+                array ( 'contrat_id'=> $contratEtude->getId()))) ;
+
+
+            }
+        }
+        return $this->render('web3tcEchangeBundle:Echange:ajoutContratEtude2.html.twig', array(
+            'form' => $form->createView(),
+          ));
+    }
+    
+    
+    
     
     /**
      * @Route("/Pays/{pays_code}", name="_pays")
@@ -155,7 +226,6 @@ class EchangeController extends Controller
               'departement'=>$departement,
               'universite'=>$universite,
             'contrats'=>$contrats,
-            'nomUniv'=>$nomUniv
               ));
         
     }
@@ -167,8 +237,14 @@ class EchangeController extends Controller
      */
     public function listeAction(ContratEtude $contrat)
     {
+        $cours = $this->getDoctrine()
+                ->getManager()
+                ->getRepository('web3tcEchangeBundle:Cours')
+                ->findByContrat($contrat);
+        
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
-            'contrat'=>$contrat
+            'contrat'=>$contrat,
+            'cours'=>$cours
             ));
         
     }

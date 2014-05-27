@@ -81,7 +81,7 @@ class Pays
 
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function increase()
     {
@@ -90,7 +90,7 @@ class Pays
     }
   
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     public function decrease()
     {

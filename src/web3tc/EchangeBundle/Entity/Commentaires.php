@@ -60,7 +60,7 @@ class Commentaires
 
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function increase()
     {
@@ -69,7 +69,7 @@ class Commentaires
     }
   
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     public function decrease()
     {

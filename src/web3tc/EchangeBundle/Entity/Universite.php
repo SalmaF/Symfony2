@@ -59,7 +59,7 @@ class Universite
 
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function increase()
     {
@@ -68,7 +68,7 @@ class Universite
     }
   
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     public function decrease()
     {

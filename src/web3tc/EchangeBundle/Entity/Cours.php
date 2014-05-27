@@ -3,7 +3,8 @@
 namespace web3tc\EchangeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use web3tc\EchangeBundle\Entity\ContratEtude;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Cours
  *
@@ -48,6 +49,13 @@ class Cours
      * @ORM\Column(name="Credits", type="integer")
      */
     private $credits;
+    
+    /**
+     * @Assert\Type(type="web3tc\EchangeBundle\Entity\ContratEtude")
+     * @ORM\ManyToMany(targetEntity="ContratEtude")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $contratEtude;    
 
 
     /**

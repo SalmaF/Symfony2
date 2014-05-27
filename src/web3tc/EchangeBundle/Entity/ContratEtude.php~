@@ -40,7 +40,7 @@ class ContratEtude
     /**
      * @Assert\Type(type="web3tc\EchangeBundle\Entity\Cours")
      * @ORM\ManyToMany(targetEntity="Cours")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $cours;
     

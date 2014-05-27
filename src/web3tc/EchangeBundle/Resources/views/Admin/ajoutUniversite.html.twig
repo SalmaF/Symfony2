@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}web3tcEchangeBundle:Admin:pays{% endblock %}
+
+{% block body %}
+<h1>Ajouter une universite</h1>
+
+   <div class="jumbotron">
+        <form class="form-in-line" method="post" role="form" {{ form_enctype(form) }}>
+ 
+{{ form_rest(form) }}
+
+        <input type="submit" class="btn btn-primary" />
+        </form>
+   </div>
+        {% endblock %}

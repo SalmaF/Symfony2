@@ -30,7 +30,8 @@ class CoursType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => NULL
+            'data_class' => 'web3tc\EchangeBundle\Entity\Cours'
+
         ));
     }
 

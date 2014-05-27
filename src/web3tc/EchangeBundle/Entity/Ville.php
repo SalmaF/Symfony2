@@ -58,7 +58,7 @@ class Ville
 
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function increase()
     {
@@ -67,7 +67,7 @@ class Ville
     }
   
     /**
-     * @ORM\preRemove
+     * @ORM\PreRemove
      */
     public function decrease()
     {
