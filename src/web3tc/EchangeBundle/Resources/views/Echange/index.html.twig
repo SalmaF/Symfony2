@@ -9,35 +9,43 @@
                 <p>Bienvenue sur notre site WEB ami Insalien.</p>
                 <p>Notre application a pour but de faciliter la recherche des étudiants qui désirent partir à l'international. Nous savons tous comme il est difficile de créer son contrat d'étude et de le faire valider ! C'est pourquoi notre site a pour objectif de conserver et organiser tous les contrats d'étude validés afin de faciliter votre démarche. </p>
                 <p>Il suffit pour toi de rentrer tes identifiants INSA dans Login, sélectionner ton département et c'est parti: tu as accès à notre base de données !</p>
+                <br/>
                 <p>Si en revanche tu es une âme charitable qui vient de vivre une superbe expérience à l'étranger, dépose ton contrat d'étude sur le bouton adéquat. Et n'hésite pas à donner ton impression via d'intéressants commentaires. Pensez que sans vous le site n'est rien.</p>
                 <br/>
                 <br/>
                 <h4>Bonne visite !!</h4>
+                <br/>
+                <br/>
             </div>
-        </div>    
+        </div>  
+        
         <div class="col-xs-6 col-md-6">
+            
             <div class="well">
-                <img class="img-responsive img-thumbnail" style="width: 700px;" src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
+                <img class="img-responsive img-thumbnail" style="width: 700px; height: 1200; " src="{{ asset('images/voyage.jpg') }}"> {# http://www.creteilmjc.com/wp-content/uploads/2011/12/voyage.jpg #}
             </div> 
-            <div class="well">
+
+            <div class='well'>
                 <form class="form-row" method="post" action="{{ path('_acceuil') }}">
-                    <div class="well">
-                        <p>Sélectionne ton département ...</p>
-                        <select name="departement" class="form-control col-md-6">  
+                    
+                    <p>Tu cherches des renseignements et des contrats d'études pour un pays en particulier ?</p>
+                    <h4>Sélectionne ton département ...</h4>
+                        
+                    <div style="display: inline-block;">
+                        <select name="departement" class="form-control">  
                             {% for departement in departements %}
                                 <option value="{{ departement.nom }}"> {{ departement.nom }} </option>
                             {% endfor %}
                         </select>
-                        <input type="submit" class="btn btn-primary" />
                     </div>
-                    {#<div class="block active col-md-6 col-md-offset-3">
-                        <p>... ou envoie ton contrat validé :
-                        <br/>
-                        <a href="{{ asset('app_dev.php/Echange/contrat_etude') }}" class="btn btn-primary btn-lg active" role="button"> Envoyer </a>
-                    </div>#}
+                            
+                    <input type="submit" class="btn btn-primary" />
+                    
                 </form>
             </div>
         </div>
+            
+            <br/>
     </div>
 
 {% endblock %}

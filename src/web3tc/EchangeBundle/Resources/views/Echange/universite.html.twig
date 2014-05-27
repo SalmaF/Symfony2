@@ -1,0 +1,26 @@
+{# src/web3tc/EchangeBundle/Resources/views/Echange/universite.html.twig #}
+
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    
+    <div class="well">
+    <h3>
+        <strong> Département </strong> {{ app.session.get('departement') }}</br>
+        <strong> Université </strong> {{universite.nom}} - {{universite.ville.nom}} - {{ universite.ville.pays.nom}}<br/>
+    </h3>
+    </div>
+    
+    <div>
+        {% for contrat in contrats %}
+            <div class="well"><a href="{{path('_liste', {'id': contrat.id } ) }}">
+                <strong>Nom :</strong> {{contrat.nomEleve}}<br/>
+                <strong>Prénom :</strong> {{contrat.prenomEleve}}<br/>
+                <strong>Année :</strong> {{contrat.anneeEnCours}}-{{contrat.anneeEnCours+1}} Semestre {{contrat.dureeDuSejour}}
+            </a></div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}
+
+

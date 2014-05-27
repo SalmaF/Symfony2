@@ -4,7 +4,9 @@
 
 {% block body %}
     
-    <h2> Mon contrat d'étude </h2>
+    <div class='well'>
+        <h3> Mon contrat d'étude </h3>
+    </div>
     
     <div class="jumbotron">
         <form class="form-in-line" method="post" role="form" {{ form_enctype(form) }}>
@@ -13,18 +15,21 @@
             {{ form_errors(form) }}
             <p> Merci de bien remplir tous les champs ci-dessous : </p>
 
-            <h3> INFORMATIONS PERSONNELLES : </h3>
+            <h3> INFORMATIONS PERSONNELLES </h3>
             <div class="form-group col-lg-12">
                 {{ form_label(form.nomEleve, 'Nom', {'label_attr': {'class': 'col-lg-3' } } ) }}
-                {{ form_errors(form.nomEleve) }}
-                {{ form_widget(form.nomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-            </div> 
+                <div class="col-lg-4">
+                    {{ form_errors(form.nomEleve) }}
+                    {{ form_widget(form.nomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div> 
+            </div>
             
             <div class="form-group col-lg-12">
                 {{ form_label(form.prenomEleve,'Prénom', {'label_attr': {'class': 'col-lg-3' } } ) }}
-                {{ form_errors(form.prenomEleve) }}
-                {{ form_widget(form.prenomEleve) }}
-                {{ form_row(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.prenomEleve) }}
+                    {{ form_widget(form.prenomEleve, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>
             </div>
                 
             <div class="form-group col-lg-12">
@@ -53,46 +58,48 @@
             </div>
                 
             <br/>
-            <h3> INFORMATIONS UNIVERSITE : </h3>
-            <div class="universite form-in-line col-lg-12">
-                {#<p> {{ form_label(form.universite, ' Université ', {'label_attr': {'class': 'col-lg-2' } }) }}</p>
+            <h3> INFORMATIONS UNIVERSITE </h3>
+            {#<div class="universite form-in-line col-lg-12">
+                <p> {{ form_label(form.universite, ' Université ', {'label_attr': {'class': 'col-lg-2' } }) }}</p>
                  <div class="col-lg-3">
                     {{ form_errors(form.universite) }}
                     {{ form_widget(form.universite, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
                 </div>  #}
                     
-               <div class="form-group col-lg-12">
-                    {{ form_label(form.universite.nom, ' Nom de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {{ form_errors(form.universite.nom) }}
-                        {{ form_widget(form.universite.nom, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>
-                {#    
-                <div class="form-group col-lg-12">
-                    {{ form_label(form.universite.pays, ' Pays de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {{ form_errors(form.universite.pays) }}
-                        {{ form_widget(form.universite.pays, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>    
-                #}
-                <div class="form-group col-lg-12">
-                    {{ form_label(form.universite.ville, ' Ville de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {#<select name="ville"> 
-                            {% for ville in villes %}
-                                <option value="{{ ville.nom }}"> {{ ville.nom }} </option>
-                            {% endfor %}
-                        </select>#}
-                        {{ form_errors(form.universite.ville) }}
-                        {{ form_widget(form.universite.ville, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>
-            
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.universite.nom, ' Nom de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.universite.nom) }}
+                    {{ form_widget(form.universite.nom, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
             </div>
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.universite.pays, ' Pays de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.universite.pays) }}
+                    {{ form_widget(form.universite.pays, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
+            </div>    
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.universite.ville, ' Ville de l\'Université', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {#<select name="ville"> 
+                        {% for ville in villes %}
+                            <option value="{{ ville.nom }}"> {{ ville.nom }} </option>
+                        {% endfor %}
+                    </select>#}
+                    {{ form_errors(form.universite.ville) }}
+                    {{ form_widget(form.universite.ville, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
+            </div>
+
+            {#</div>#}
             
             <br/>
+<<<<<<< HEAD
             
             <h3> INFORMATIONS CURSUS : </h3>
             <div class="cours form-horizontal col-lg-12">
@@ -104,36 +111,103 @@
                         {{ form_widget(form.cours.numero, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
                     </div>  
                 </div>
+=======
+            <h3> INFORMATIONS CURSUS </h3>
+>>>>>>> 1ceecd52722d6c899744ef1ea4c112960b4a3359
                 
-                <div class="form-group col-lg-12">
-                    {{ form_label(form.cours.titre, ' Titre', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {{ form_errors(form.cours.titre) }}
-                        {{ form_widget(form.cours.titre, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>
-                    
-                <div class="form-group col-lg-12">
-                    {{ form_label(form.cours.semestre, ' Semestre', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {{ form_errors(form.cours.semestre) }}
-                        {{ form_widget(form.cours.semestre, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>
-                    
-                <div class="form-group col-lg-12">
-                    {{ form_label(form.cours.credits, ' Crédits', {'label_attr': {'class': 'col-lg-3' } }) }}
-                    <div class="col-lg-4">
-                        {{ form_errors(form.cours.credits) }}
-                        {{ form_widget(form.cours.credits, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
-                    </div>  
-                </div>
+            <p>Insérer votre liste de cours : </p>
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.cours.numero, ' Numéro', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.cours.numero) }}
+                    {{ form_widget(form.cours.numero, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
             </div>
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.cours.titre, ' Titre', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.cours.titre) }}
+                    {{ form_widget(form.cours.titre, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
+            </div>
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.cours.semestre, ' Semestre', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.cours.semestre) }}
+                    {{ form_widget(form.cours.semestre, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
+            </div>
+
+            <div class="form-group col-lg-12">
+                {{ form_label(form.cours.credits, ' Crédits', {'label_attr': {'class': 'col-lg-3' } }) }}
+                <div class="col-lg-4">
+                    {{ form_errors(form.cours.credits) }}
+                    {{ form_widget(form.cours.credits, {'widget_attr': {'class': 'col-lg-4 col-lg-offset-1' } } ) }}
+                </div>  
+            </div>
+            
            
             
-    {{ form_rest(form) }}            
-        <input type="submit" class="btn btn-primary" />
-    </form>
-</div>
+        {{ form_rest(form) }}            
+        <input type="submit" class="btn btn-primary btn-lg" />
+        </form>
+    </div>
 
+<<<<<<< HEAD
+=======
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var $container = $('div#web3tc_echangebundle_contraetudetype_cours');
+
+            var $lienAjout = $('<a href="#" id="ajout_cours" class="btn">Ajouter un cours</a>');
+            $container.append($lienAjout);
+
+            $lienAjout.click(function(e) {
+                ajouterCours($container);
+                e.preventDefault();
+                return false;
+            });
+
+            var index = $container.find(':input').length;
+
+            if (index == 0) {
+                ajouterCours($container);
+            } else {
+                $container.children('div').each(function() {
+                    ajouterLienSuppression($(this));
+                });
+            }
+
+            function ajouterCours($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Cours n°' + (index+1))
+                                                                    .replace(/__name__/g, index));
+
+                ajouterLienSuppression($prototype);
+                $container.append($prototype);
+                index++;
+            }
+
+            function ajouterLienSuppression($prototype) {
+                $lienSuppression = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+
+                $prototype.append($lienSuppression);
+
+                $lienSuppression.click(function(e) {
+                    $prototype.remove();
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        });
+
+            $lienSuppression.click(function(e) {
+                $prototype.remove();
+                e.preventDefault();
+                return false;
+            });
+    </script>
+>>>>>>> 1ceecd52722d6c899744ef1ea4c112960b4a3359
 {% endblock %}

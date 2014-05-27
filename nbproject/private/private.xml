@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.france.js</file>
             <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.usa.js</file>
@@ -27,5 +28,8 @@
             <file>file:/var/www/html/Symfony2/web/jqvmap/jqvmap/maps/jquery.vmap.allemagne.js</file>
             <file>file:/var/www/html/Symfony2/app/Resources/views/base.html.twig</file>
         </group>
+=======
+        <group/>
+>>>>>>> 1ceecd52722d6c899744ef1ea4c112960b4a3359
     </open-files>
 </project-private>

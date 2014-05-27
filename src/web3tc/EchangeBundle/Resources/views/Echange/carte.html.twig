@@ -8,11 +8,12 @@
 {% endblock%}
 
 {% block body %}
-
-    <h3> Selectionnez le pays dans lequel vous souhaitez partir</h3>
-    <h2 id="pays"></h2>
-    <div class="col-md-offset-1" id="vmap" style="width: 1000px; height: 600px;"></div>
-
+    
+    <div class="well">
+        <h3> Selectionnez le pays qui vous intéresse :</h3>
+        <div class="col-md-offset-1" id="vmap" style="height: 400px;"></div>
+    </div>
+    
 {% endblock %}
 
 {% block javascripts %}
@@ -29,13 +30,14 @@
             borderWidth: 1,
             color: '#0B3861',
             enableZoom: true,
-            hoverColor: '#DF7401',
-            hoverOpacity: null,
-            normalizeFunction: 'polynomial',
+            hoverColor: '#FFCCFF',
+            hoverOpacity: 0.4,
+            normalizeFunction: 'linear',
             scaleColors: ['#C8EEFF', '#006491'],
             selectedColor: '#c9dfaf',
             selectedRegion: null,
             showTooltip: true,
+            
             onRegionClick: function(element, code, region)
             {
                window.location.href="../Pays/"+code.toUpperCase();
