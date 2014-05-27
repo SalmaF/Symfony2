@@ -4,14 +4,15 @@
 
 {% block body %}
     
-    <h1>Ajouter un cours</h1>
-
+    <div class="well">
+        <h1>Ajouter un cours</h1>
+    </div>
+        
     <div class="jumbotron">
 
             <div class="progress progress-striped active">
             <div class="progress-bar"  role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
                 <span class="sr-only">70% Complete</span>
-            </div>
            </div>
        
         <form class="form-in-line" method="post" role="form" {{ form_enctype(form) }}>
