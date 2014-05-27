@@ -167,14 +167,14 @@ class EchangeController extends Controller
      */
     public function listeAction(ContratEtude $contrat)
     {
-        $cours = $this->getDoctrine()
+        $courss = $this->getDoctrine()
                 ->getManager()
                 ->getRepository('web3tcEchangeBundle:Cours')
-                ->findByContrat($contrat);
+                ->getByCours($contrat);
         
         return $this->render('web3tcEchangeBundle:Echange:listeContrats.html.twig', array(
             'contrat'=>$contrat,
-            'cours'=>$cours
+            'courss'=>$courss,
             ));
         
     }
